@@ -1,0 +1,114 @@
+.signin-page{
+
+	&__container{
+		margin: 0 auto;
+		margin-top: 120px;
+		background-color: #FFFFFF;
+		border: 0.2px solid #1A1A1A;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		border-radius: 8px;
+		max-width: 870px;
+	}
+	&__box{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	&__picture{
+
+	}
+
+	&__data{
+		text-align: center;
+	}
+
+	&__heading{
+		line-height: 24px;
+		font-size: 16px;
+		font-weight: 400;
+		font-style: normal;
+		color: #1A1A1A;
+		margin-bottom: 36px;
+	}
+
+	&__inputs{
+		display: flex;
+		flex-direction: column;
+	}
+	&__input{
+		background: rgba(179, 179, 179, 0.2);
+		border: none;
+		width: 333px;
+		height: 43px;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+		border-radius: 4px;
+	}
+	&__input:not(:last-child){
+		margin-bottom: 35px;
+	}
+
+	&__check-box__container{
+		display: flex;
+		justify-content: space-between;
+	}
+	&__inputcontainer{
+		display: flex;
+		align-items: center;
+	}
+	&__remember{
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 8px;
+		line-height: 34px;
+	}
+	&__forgot{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 10px;
+		line-height: 34px;
+	}
+
+	&__button1{
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 24px;
+		font-style: normal;
+		color: #FFFFFF;
+		background: linear-gradient(113.19deg, #087B83 9.8%, #C86810 106.17%);
+		border-radius: 4px;
+		width: 118px;
+		height: 52px;
+		border: none;
+		cursor: pointer;
+	}
+
+	&__button2{
+		color: #097981;
+		font-family: 'Balsamiq Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 24px;
+		border: none;
+		background-color: transparent;
+	}
+
+	&__text{
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 24px;
+		font-family: 'Balsamiq Sans';
+		font-style: normal;
+		font-weight: 400;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-bottom: 19px;
+	}
+}
+.forgot-password__container{
+	margin-bottom: 14px;
+}

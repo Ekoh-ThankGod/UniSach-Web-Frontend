@@ -1,0 +1,77 @@
+.navigation{
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	.logo-container{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		&__logo{
+			margin-right: 10px;
+		}
+
+		&__text{
+			font-family: 'Poppins';
+			font-style: normal;
+			font-weight: 600;
+			font-size: 30px;
+			line-height: 32px;
+			color: #FFFFFF;
+		}
+	}
+	.navigation-list{
+		&__container{
+			display: flex;
+			list-style: none;
+			color: #FFFFFF;
+			font-family: 'Poppins';
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+		}
+		&__item{
+			cursor: pointer;
+		}
+		&__item:not(:last-child){
+			margin-right: 50px;
+		}
+	}
+	.login-signup{
+		&__container{
+			display: flex;
+		}
+		&__login{
+			border: none;
+			background-color: transparent;
+		}
+		&__common{
+		   padding: 14px 32px;
+		   margin-right: 10px;
+		   font-weight: 500;
+		   font-size: 16px;
+		   line-height: 24px;
+		   cursor: pointer;
+		   border: none;
+		   width: 125px;
+		   height: 52px;
+		   color: #FFFFFF;
+		}
+		&__signup{
+		   padding: 14px 32px;
+		   margin-right: 10px;
+		   background: linear-gradient(113.19deg, #087B83 9.8%, #C86810 106.17%);
+		   border-radius: 4px;
+		   cursor: pointer;
+		   border: none;
+		   background: linear-gradient(113.19deg, #087B83 9.8%, #C86810 106.17%);
+		   border-radius: 4px;
+		}
+	}
+}
+
+
