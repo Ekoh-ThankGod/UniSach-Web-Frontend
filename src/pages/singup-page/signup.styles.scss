@@ -52,10 +52,13 @@
 	}
 
 	&__buttonholder{
-
+		position: relative;
 	}
 
 	&__button{
+		position: absolute;
+		top: 0px;
+		right: 0px;
 		width: 185px;
 		height: 52px;
 		background: linear-gradient(113.19deg, #087B83 9.8%, #C86810 106.17%);
@@ -72,7 +75,7 @@
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 24px;
-		margin-bottom: 50px;
-		margin-top: 80px;
+		margin-bottom: 40px;
+		margin-top: 40px;
 	}
 }
