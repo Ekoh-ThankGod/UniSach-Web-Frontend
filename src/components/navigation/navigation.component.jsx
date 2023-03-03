@@ -1,5 +1,6 @@
 import "./navigation.styles.scss";
 import logo from "../../assets/logo/logo.svg";
+import {Link} from "react-router-dom";
 const Navigation = () =>{
 	return(
 		<div className="navigation">
@@ -18,8 +19,12 @@ const Navigation = () =>{
 			</div>
 			<div className="login-signup">
 				<div className="login-signup__container">
-					<button className="login-signup__login login-signup__common">Login</button>
-					<button className="login-signup__signup login-signup__common">Sign up</button>
+					<Link to="/">
+						<button className="login-signup__login login-signup__common">Login</button>
+					</Link>	
+					<Link to="/signup">
+						<button className="login-signup__signup login-signup__common">Sign up</button>
+					</Link>
 				</div>
 			</div>
 		</div>

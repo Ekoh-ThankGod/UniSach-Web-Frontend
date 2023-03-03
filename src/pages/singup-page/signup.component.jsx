@@ -4,8 +4,19 @@ import "./signup.styles.scss";
 const SignUpPage = () =>{
 
 	const createAccountDetails = {firstName: "", lastName:"", email: "", phone:"", password:"", confirmPassword:""};
-	const [createAccountDetailsValues, setCreateAccountDetails] = useState(createAccountDetails);
 
+	const inputDetails = [
+		{id:"qwe", name: "firstName", placeholder: "First Name", className: "signup-container__common", value:""}, 
+		{id:"asr", name: "lastName", placeholder:"last Name", className: "", value:""},
+		{id:"gft", name:"email",placeholder:"Email", className:"signup-container__common", value:""},
+		{id:"kgy", name: "phone", placeholder:"Phone Number",className:"", value:""},
+		{id:"csr", name: "password", placeholder: "Password", className:"signup-container__common", value:""},
+		{id:"tyu", name:"confirmPassword", placeholder:"Confirm Password", className:"", value:""}
+		];
+	const [createAccountDetailsValues, setCreateAccountDetails] = useState(createAccountDetails);
+	const [inputDetailsValues, setInputDetailValues] = useState(inputDetails);
+
+	// Handles the changes in the input
 	const onInputChange = (event) =>{
 		const {name, value} = event.target;
 
@@ -13,11 +24,35 @@ const SignUpPage = () =>{
 			...createAccountDetailsValues,
 			[name]:value,
 		})
+
+		const newaccountdetails = inputDetailsValues.map(el =>{
+			if(el.name ===  name){el.value = value}
+				return el;
+		})
+
+		setInputDetailValues(newaccountdetails);
 	}
 	// console.log(createAccountDetailsValues);
-
+	// handles the clicking of the button on register page
 	const onButtonClick = (event) =>{
-		console.log(event.target);
+		const placeholders = [{id:"qwe", name: "Pharmacy Name"}, {id:"asr",name: "Pharmacy Type"}, {id:"gft", name: "Pharmacy Email"}, 
+							{id:"kgy",name: "Pharmacy Phone No"}, {id:"csr", name: "Pharmacy Motto"}, {id:"tyu", name:"Pharmacy License No"}]
+		const inputFields = inputDetailsValues.map(el =>{
+			placeholders.map(pl =>{
+				if(el.id === pl.id){
+					el.placeholder = pl.name;
+					el.value =""
+				}
+				return(
+					el
+				)
+			})
+			return(
+				el
+			)
+		})
+		setInputDetailValues(inputFields);
+		console.log(inputDetailsValues);
 	}
 
 	return(
@@ -26,19 +61,15 @@ const SignUpPage = () =>{
 			<div className="signup-container__margin">
 				<span className="signup-container__span">Create an Account</span>
 				<div className="signup-container__account">
-					<input onChange={(event) => onInputChange(event)}  type="text" className="signup-container__input signup-container__common"
-					 name="firstName" placeholder="First Name"/>
-					<input onChange={(event) => onInputChange(event)}  type="text" className="signup-container__input"
-					 name="lastName" placeholder="Last Name"/>
-					<input onChange={(event) => onInputChange(event)} type="text" className="signup-container__input signup-container__common"
-					 name="email" placeholder="Email"/>
-					<input onChange={(event) => onInputChange(event)} type="tel" className="signup-container__input"
-					 name="phone" placeholder="Phone Number"/>
-					<input onChange={(event) => onInputChange(event)} type="password" 
-					className="signup-container__input signup-container__common"
-					 name="password" placeholder="Password "/>
-					<input onChange={(event) => onInputChange(event)} type="password" 
-					className="signup-container__input" name="confirmPassword" placeholder="Confirm Password"/>
+					{
+						inputDetailsValues.map(el =>{
+							const {id, name, placeholder, className, value} = el;
+							return(
+								<input key={id} onChange={(event) => onInputChange(event)}  type="text" className={`signup-container__input ${className}`}
+								name={name} placeholder={placeholder} value={value}/>
+							)
+						})
+					}
 					<div className="signup-container__buttonholder">
 						<button onClick = {(event) => onButtonClick(event)} className="signup-container__button">Continue</button>
 					</div>

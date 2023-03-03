@@ -84,6 +84,11 @@
 		cursor: pointer;
 	}
 
+	&__btn2holder{
+		display: flex;
+		text-decoration: none;
+	}
+
 	&__button2{
 		color: #097981;
 		font-family: 'Balsamiq Sans';
@@ -93,6 +98,7 @@
 		line-height: 24px;
 		border: none;
 		background-color: transparent;
+		cursor: pointer;
 	}
 
 	&__text{
