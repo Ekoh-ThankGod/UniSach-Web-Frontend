@@ -1,5 +1,6 @@
 import {useState} from "react";
 import "./signup.styles.scss";
+import ProfileAddress from "../../components/profileaddress/profile-address.component.jsx";
 
 const SignUpPage = () =>{
 
@@ -15,6 +16,9 @@ const SignUpPage = () =>{
 		];
 	const [createAccountDetailsValues, setCreateAccountDetails] = useState(createAccountDetails);
 	const [inputDetailsValues, setInputDetailValues] = useState(inputDetails);
+	const [heading, setHeading] = useState("Please Enter Details to Register");
+	const [classDisplay, setClassDisplay] = useState("");
+	const [classDisplayAddress, setClassDisplayAddress] = useState("profile-address__display");
 
 	// Handles the changes in the input
 	const onInputChange = (event) =>{
@@ -52,14 +56,18 @@ const SignUpPage = () =>{
 			)
 		})
 		setInputDetailValues(inputFields);
-		console.log(inputDetailsValues);
+		setHeading("Register Pharmacy");
+		setClassDisplay("signup-container__display");
+		setClassDisplayAddress("");
+		// console.log(inputDetailsValues);
 	}
 
 	return(
 		<div className="signup-container">
-			<h2 className="signup-container__text">Please Enter Details to Register</h2>
+			<h2 className="signup-container__text">{heading}</h2>
 			<div className="signup-container__margin">
-				<span className="signup-container__span">Create an Account</span>
+				<span className={`signup-container__span ${classDisplay}`}>Create an Account</span>
+				<ProfileAddress classDisplayAddress={classDisplayAddress}/>
 				<div className="signup-container__account">
 					{
 						inputDetailsValues.map(el =>{
