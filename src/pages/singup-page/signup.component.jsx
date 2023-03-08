@@ -21,6 +21,7 @@ const SignUpPage = () =>{
 	const [inputDetailsValues, setInputDetailValues] = useState(inputDetails);
 	// FOR CHANGING TEXT
 	const [heading, setHeading] = useState("Please Enter Details to Register");
+	const [buttonText, setButtonText] = useState("Continue");
 	// FOR Changing CSS
 	const [classDisplay, setClassDisplay] = useState("");
 	const [classDisplayAddress, setClassDisplayAddress] = useState("profile-address__display");
@@ -30,6 +31,8 @@ const SignUpPage = () =>{
 	const [circleBig, setCircleBig] = useState("");
 	const [circleBig1, setCircleBig1] = useState("");
 	const [circleBig2, setCircleBig2] = useState("");
+	const [inputDisplay, setInputDisplay] = useState("");
+	const [addImageDisplay, setAddImageDisplay] = useState("signup-container__display");
 
 
 	// Handles the changes in the input
@@ -73,9 +76,14 @@ const SignUpPage = () =>{
 		let placeholders;
 		setCount(count+1);
 
-		const {password, confirmPassword} = createAccountDetailsValues;
+		const {password, confirmPassword, email} = createAccountDetailsValues;
 
 		if(password !== confirmPassword || password===""){
+			setCount(1);
+			return;
+		}
+
+		if(!email.includes("@")){
 			setCount(1);
 			return;
 		}
@@ -101,16 +109,20 @@ const SignUpPage = () =>{
 			setAddress("profile-address__common");
 			setCircleBig1("signup-container__circle-big");
 			setCircleBig("");
-
 		}
 
 		else if(count === 3){
 			setOthers("profile-address__others");
 			setCircleBig2("signup-container__circle-big");
 			setCircleBig1("");
+			setInputDisplay("signup-container__display");
+			setAddImageDisplay("");
+			setButtonText("Finish");
+		}
+		else{
+			console.log(count);
 		}
 		
-		// console.log(count);
 	}
 
 	return(
@@ -119,12 +131,13 @@ const SignUpPage = () =>{
 			<div className="signup-container__margin">
 				<span className={`signup-container__span ${classDisplay}`}>Create an Account</span>
 				<ProfileAddress others={others} address={address} classDisplayAddress={classDisplayAddress}/>
+				<AddImage addImageDisplay={addImageDisplay}/>
 				<div className="signup-container__account">
 					{
 						inputDetailsValues.map(el =>{
 							const {id, name, placeholder, className, value} = el;
 							return(
-								<input key={id} onChange={(event) => onInputChange(event)}  type="text" className={`signup-container__input ${className}`}
+								<input key={id} onChange={(event) => onInputChange(event)}  type="text" className={`signup-container__input ${className} ${inputDisplay}`}
 								name={name} placeholder={placeholder} value={value}/>
 							)
 						})
@@ -135,7 +148,7 @@ const SignUpPage = () =>{
 							<span className={`signup-container__circle ${circleBig1}`}></span>
 							<span className={`signup-container__circle ${circleBig2}`}></span>
 						</div>
-						<button onClick = {(event) => onButtonClick(event)} className="signup-container__button">Continue</button>
+						<button onClick = {(event) => onButtonClick(event)} className="signup-container__button">{buttonText}</button>
 					</div>
 				</div>
 			</div>

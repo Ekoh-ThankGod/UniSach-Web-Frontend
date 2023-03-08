@@ -1,0 +1,22 @@
+.add-image{
+	&__container{
+		display: flex;
+		justify-content: flex-start;
+		margin-top: 37px;
+		align-items: flex-end;
+		cursor: pointer;
+	}
+
+	&__picture{
+		margin-right: 17px;
+	}
+
+	&__text{
+		font-family: 'Balsamiq Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 24px;
+		color: #097981;
+	}
+}
