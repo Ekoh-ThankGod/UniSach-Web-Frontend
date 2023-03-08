@@ -83,7 +83,7 @@ const SignUpPage = () =>{
 			return;
 		}
 
-		if(!email.includes("@")){
+		if(!email.includes("@") || !email.includes("com")){
 			setCount(1);
 			return;
 		}

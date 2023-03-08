@@ -4,10 +4,10 @@ import {Link} from "react-router-dom";
 const Navigation = () =>{
 	return(
 		<div className="navigation">
-			<div className="logo-container">
+			<Link to="/" className="logo-container">
 				<img src={logo} className="logo-container__logo" alt="pharmacy-logo"/>
 				<span className="logo-container__text">Unisac</span>
-			</div>
+			</Link>
 			<div className="navigation-list">
 				<ul className="navigation-list__container">
 					<li className="navigation-list__item">Platform</li>
@@ -19,7 +19,7 @@ const Navigation = () =>{
 			</div>
 			<div className="login-signup">
 				<div className="login-signup__container">
-					<Link to="/">
+					<Link to="/signin">
 						<button className="login-signup__login login-signup__common">Login</button>
 					</Link>	
 					<Link to="/signup">
