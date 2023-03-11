@@ -22,6 +22,9 @@ const SignUpPage = () =>{
 	// FOR CHANGING TEXT
 	const [heading, setHeading] = useState("Please Enter Details to Register");
 	const [buttonText, setButtonText] = useState("Continue");
+	// ERROR MESSAGE
+	const [errorMessage, setErrorMessage] = useState("error message is displayed here");
+	const [errorVisibility, setErrorVisibility] = useState("signup-container__circle-display");
 	// FOR Changing CSS
 	const [classDisplay, setClassDisplay] = useState("");
 	const [classDisplayAddress, setClassDisplayAddress] = useState("profile-address__display");
@@ -70,21 +73,55 @@ const SignUpPage = () =>{
 		})
 		setInputDetailValues(inputFields);
 	}
+
+	// Validating the Email address
+
+	const validateEmail = (mail) =>{
+		let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;// eslint-disable-line
+		if(mail.match(mailformat)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	const handleErrorMessage = (message) =>{
+		setCount(1);
+		setErrorMessage(message);
+		setErrorVisibility("");
+	}
 	
 	// handles the clicking of the button on register page
 	const onButtonClick = (event) =>{
 		let placeholders;
 		setCount(count+1);
 
-		const {password, confirmPassword, email} = createAccountDetailsValues;
+		const {password, confirmPassword, email,firstName, lastName, phone} = createAccountDetailsValues;
 
-		if(password !== confirmPassword || password===""){
-			setCount(1);
+		if(password === "" || confirmPassword === "" || email === "" 
+			|| lastName === "" || firstName=== ""|| phone === ""){
+			handleErrorMessage("Please fill all the input fields!");
 			return;
 		}
 
-		if(!email.includes("@") || !email.includes("com")){
-			setCount(1);
+		// Password Validation
+
+		if(password !== confirmPassword || password===""){
+			handleErrorMessage("Passwords do not match!");
+			return;
+		}
+
+		if(password.length < 8){
+			handleErrorMessage("Password must be atleast 8 characters!");
+			return;
+		}
+		else{
+			setErrorVisibility("signup-container__circle-display");
+		}
+
+		if(!validateEmail(email)){
+			handleErrorMessage("Not a valid email address!");
 			return;
 		}
 
@@ -150,6 +187,7 @@ const SignUpPage = () =>{
 						</div>
 						<button onClick = {(event) => onButtonClick(event)} className="signup-container__button">{buttonText}</button>
 					</div>
+					<span className={`signup-container__error ${errorVisibility}`}>{errorMessage}</span>
 				</div>
 			</div>
 		</div>
