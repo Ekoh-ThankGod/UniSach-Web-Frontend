@@ -1,13 +1,13 @@
 .signup-container{
-	background-image: url(../../assets/logo/signup-background.jpg);
-	background-size: cover;
-	max-width: 1022px;
 	height: 634px;
 	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	align-items: center;
+	width: 100%;
+
+	&__overall{
+		background: rgba(8, 123, 131, 0.47);
+		padding-top: 60px;
+		height: 100px;	
+	}
 
 	&__text{
 		margin-top: 50px;
@@ -20,31 +20,37 @@
 		line-height: 24px;
 	}
 	&__account{
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
+		
+	}
+	&__header{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 24px;
 	}
 	&__margin{
-		width: 665px;
+		width: 900px;
 		height: 450px;
-		background-color: white;
-		box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-		background: #FFFFFF;
+		// box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+		background-color:  #F9F4F4;
 		text-align: center;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;	
+		justify-content: center;
+		border-radius: 8px;	
 	}
 
 	&__input{
-		width: 244px;
+		width: 300px;
 		height: 40px;
-		border: 1px solid #B3B3B3;
+		border: 1px solid #000000;
+		border-radius: 8px;
 		margin-bottom: 15px;
 		border-radius: 4px;
+		background-color:  #F9F4F4;
 
 		font-family: 'Poppins';
 		font-style: normal;
@@ -59,14 +65,15 @@
 	}
 
 	&__buttonholder{
-		width: 85%;
+		
 		display: flex;
-		justify-content: flex-end;
+		flex-direction: column;
+		justify-content: center;
 		align-items: center;
-		margin-top: 40px;
 	}
 
 	&__small{
+		width: 85%;
 		display: flex;
 		align-items: center;
 		margin-right: 45px;
@@ -90,14 +97,19 @@
 	}
 
 	&__button{
-		width: 185px;
+		width: 300px;
 		height: 52px;
-		background: linear-gradient(113.19deg, #087B83 9.8%, #C86810 106.17%);
-		border-radius: 4px;
+		background: #087B83;
+		border-radius: 8px;
 		outline: none;
 		border: none;
 		cursor: pointer;
 		color: #FFFFFF;
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
 	}
 	&__span{
 		font-family: 'Poppins';
@@ -125,9 +137,9 @@
 }
 
 ::placeholder{
-	font-family: 'Balsamiq Sans';
+	font-family: 'Poppins';
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 500;
 	font-size: 16px;
 	line-height: 24px;
 	padding-left: 10px;

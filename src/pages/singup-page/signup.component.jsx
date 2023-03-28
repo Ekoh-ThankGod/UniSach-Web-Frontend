@@ -2,6 +2,7 @@ import {useState} from "react";
 import "./signup.styles.scss";
 import ProfileAddress from "../../components/profileaddress/profile-address.component.jsx";
 import AddImage from "../../components/add-image/add-image.component.jsx";
+import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx";
 
 const SignUpPage = () =>{
 
@@ -20,20 +21,16 @@ const SignUpPage = () =>{
 	const [createAccountDetailsValues, setCreateAccountDetails] = useState(createAccountDetails);
 	const [inputDetailsValues, setInputDetailValues] = useState(inputDetails);
 	// FOR CHANGING TEXT
-	const [heading, setHeading] = useState("Please Enter Details to Register");
 	const [buttonText, setButtonText] = useState("Continue");
 	// ERROR MESSAGE
 	const [errorMessage, setErrorMessage] = useState("error message is displayed here");
 	const [errorVisibility, setErrorVisibility] = useState("signup-container__circle-display");
 	// FOR Changing CSS
-	const [classDisplay, setClassDisplay] = useState("");
+	const [heading, setHeading] = useState("Enter details to create account");
 	const [classDisplayAddress, setClassDisplayAddress] = useState("profile-address__display");
-	const [circleDisplay, setCircleDisplay] = useState("signup-container__circle-display");
+	// const [circleDisplay, setCircleDisplay] = useState("signup-container__circle-display");
 	const [address, setAddress] = useState("");
 	const [others, setOthers] = useState("");
-	const [circleBig, setCircleBig] = useState("");
-	const [circleBig1, setCircleBig1] = useState("");
-	const [circleBig2, setCircleBig2] = useState("");
 	const [inputDisplay, setInputDisplay] = useState("");
 	const [addImageDisplay, setAddImageDisplay] = useState("signup-container__display");
 
@@ -130,12 +127,9 @@ const SignUpPage = () =>{
 							{id:"kgy",name: "Pharmacy Phone No"}, {id:"csr", name: "Pharmacy Motto"}, {id:"tyu", name:"Pharmacy License No"}]
 
 			changePlaceHolder(placeholders);
-
-			setHeading("Register Pharmacy");
-			setClassDisplay("signup-container__display");
+			setHeading("Pharmacy Registration");
+			// setClassDisplay("signup-container__display");
 			setClassDisplayAddress("");
-			setCircleDisplay("");
-			setCircleBig("signup-container__circle-big");
 		}
 		else if(count === 2){
 			placeholders = [{id:"qwe", name: "Line 1"}, {id:"asr",name: "Line 2"}, {id:"gft", name: "District"}, 
@@ -144,16 +138,13 @@ const SignUpPage = () =>{
 			changePlaceHolder(placeholders);
 
 			setAddress("profile-address__common");
-			setCircleBig1("signup-container__circle-big");
-			setCircleBig("");
 		}
 
 		else if(count === 3){
 			setOthers("profile-address__others");
-			setCircleBig2("signup-container__circle-big");
-			setCircleBig1("");
 			setInputDisplay("signup-container__display");
 			setAddImageDisplay("");
+			setHeading("");
 			setButtonText("Finish");
 		}
 		else{
@@ -164,10 +155,11 @@ const SignUpPage = () =>{
 
 	return(
 		<div className="signup-container">
-			<h2 className="signup-container__text">{heading}</h2>
+			<UnisachLogo/>
+			<div className="signup-container__overall">
 			<div className="signup-container__margin">
-				<span className={`signup-container__span ${classDisplay}`}>Create an Account</span>
 				<ProfileAddress others={others} address={address} classDisplayAddress={classDisplayAddress}/>
+				<h2 className="signup-container__header">{heading}</h2>
 				<AddImage addImageDisplay={addImageDisplay}/>
 				<div className="signup-container__account">
 					{
@@ -180,15 +172,11 @@ const SignUpPage = () =>{
 						})
 					}
 					<div className="signup-container__buttonholder">
-						<div className={`signup-container__small ${circleDisplay}`}>
-							<span className={`signup-container__circle ${circleBig}`}></span>
-							<span className={`signup-container__circle ${circleBig1}`}></span>
-							<span className={`signup-container__circle ${circleBig2}`}></span>
-						</div>
 						<button onClick = {(event) => onButtonClick(event)} className="signup-container__button">{buttonText}</button>
+						<span className={`signup-container__error ${errorVisibility}`}>{errorMessage}</span>
 					</div>
-					<span className={`signup-container__error ${errorVisibility}`}>{errorMessage}</span>
 				</div>
+			</div>
 			</div>
 		</div>
 	)

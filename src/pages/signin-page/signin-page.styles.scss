@@ -16,17 +16,24 @@
 	&__data{
 		text-align: center;
 	}
-	&__logo{
-		margin-top: 17px;
+	&__welcome{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: #F9F4F4;
+		width: 500px;
+		height: 600px;
+		border-radius: 8px;
 	}
 
 	&__heading{
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 500;
-		font-size: 40px;
+		font-size: 15px;
 		line-height: 24px;
-		margin-bottom: 70px;
+		margin-bottom: 50px;
 	}
 
 	&__inputs{
@@ -37,11 +44,12 @@
 		position: relative;
 	}
 	&__input{
-		width: 650px;
-		height: 65px;
+		width: 369px;
+		height: 60px;
 		border-radius: 10px;
 		border: 1px solid #087B83;
-		margin-bottom: 55px;
+		margin-bottom: 25px;
+		background-color: #F9F4F4;
 	}
 	// &__input:not(:last-child){
 		
@@ -59,14 +67,15 @@
 		font-family: 'Roboto';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 8px;
+		font-size: 13px;
 		line-height: 34px;
+		color: #817A7A;
 	}
 	&__forgot{
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 500;
-		font-size: 20px;
+		font-size: 13px;
 		line-height: 34px;
 		color: #087B83;
 		text-decoration: none;
@@ -76,13 +85,13 @@
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 300;
-		font-size: 25px;
+		font-size: 30px;
 		line-height: 24px;
 		color: #FFFFFF;
 		background: #087B83;
 		border-radius: 8px;
-		width: 650px;
-		height: 50px;
+		width: 369px;
+		height: 60px;
 		border: none;
 		cursor: pointer;
 		margin-bottom: 5px;
@@ -98,7 +107,7 @@
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 25px;
+		font-size: 16px;
 		line-height: 24px;
 		color: #097981;
 		border: none;
@@ -123,14 +132,14 @@
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 25px;
+		font-size: 16px;
 		line-height: 24px;
 	}
 	&__google{
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 650px;
+		width: 369px;
 		height: 60px;
 		border: 1px solid #000000;
 		border-radius: 8px;
@@ -141,7 +150,7 @@
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 300;
-		font-size: 25px;
+		font-size: 16px;
 		line-height: 24px;
 		color: #000000;
 	}
@@ -161,24 +170,24 @@
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 25px;
+		font-size: 16px;
 		line-height: 24px;
 	}
 	&__label{
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 500;
-		font-size: 20px;
+		font-size: 16px;
 		line-height: 24px;
 		color: #087B83;
 		position: absolute;
-		left: 4%;
+		left: 8%;
 		top: -14%;
-		background-color: #FFFFFF;
-		width: 150px;
+		background-color: #F9F4F4;
+		width: 117px;
 	}
 	&__label-password{
-		width: 123px;
+		width: 100px;
 	}
 }
 .forgot-password__container{
