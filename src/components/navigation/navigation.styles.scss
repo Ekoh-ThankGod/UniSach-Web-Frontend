@@ -24,14 +24,14 @@
 			font-weight: 600;
 			font-size: 30px;
 			line-height: 32px;
-			color: #FFFFFF;
+			color: #000000;
 		}
 	}
 	.navigation-list{
 		&__container{
 			display: flex;
 			list-style: none;
-			color: #FFFFFF;
+			color: #000000;
 			font-family: 'Poppins';
 			font-style: normal;
 			font-weight: 500;
@@ -63,7 +63,7 @@
 		   border: none;
 		   width: 125px;
 		   height: 52px;
-		   color: #FFFFFF;
+		   color: #000000;
 		}
 		&__signup{
 		   padding: 14px 32px;

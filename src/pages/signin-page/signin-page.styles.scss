@@ -1,18 +1,13 @@
 .signin-page{
 
 	&__container{
-		margin: 0 auto;
-		margin-top: 120px;
-		background-color: #FFFFFF;
-		border: 0.2px solid #1A1A1A;
-		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-		border-radius: 8px;
-		max-width: 870px;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		
 	}
 	&__box{
-		display: flex;
-		flex-direction: row;
-		align-items: center;
+	
 	}
 	&__picture{
 
@@ -21,31 +16,36 @@
 	&__data{
 		text-align: center;
 	}
+	&__logo{
+		margin-top: 17px;
+	}
 
 	&__heading{
-		line-height: 24px;
-		font-size: 16px;
-		font-weight: 400;
+		font-family: 'Poppins';
 		font-style: normal;
-		color: #1A1A1A;
-		margin-bottom: 36px;
+		font-weight: 500;
+		font-size: 40px;
+		line-height: 24px;
+		margin-bottom: 70px;
 	}
 
 	&__inputs{
 		display: flex;
 		flex-direction: column;
 	}
+	&__inputs-container{
+		position: relative;
+	}
 	&__input{
-		background: rgba(179, 179, 179, 0.2);
-		border: none;
-		width: 333px;
-		height: 43px;
-		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-		border-radius: 4px;
+		width: 650px;
+		height: 65px;
+		border-radius: 10px;
+		border: 1px solid #087B83;
+		margin-bottom: 55px;
 	}
-	&__input:not(:last-child){
-		margin-bottom: 35px;
-	}
+	// &__input:not(:last-child){
+		
+	// }
 
 	&__check-box__container{
 		display: flex;
@@ -66,22 +66,27 @@
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 500;
-		font-size: 10px;
+		font-size: 20px;
 		line-height: 34px;
+		color: #087B83;
+		text-decoration: none;
 	}
 
 	&__button1{
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 24px;
+		font-family: 'Poppins';
 		font-style: normal;
+		font-weight: 300;
+		font-size: 25px;
+		line-height: 24px;
 		color: #FFFFFF;
-		background: linear-gradient(113.19deg, #087B83 9.8%, #C86810 106.17%);
-		border-radius: 4px;
-		width: 118px;
-		height: 52px;
+		background: #087B83;
+		border-radius: 8px;
+		width: 650px;
+		height: 50px;
 		border: none;
 		cursor: pointer;
+		margin-bottom: 5px;
+		margin-top: 5px;
 	}
 
 	&__btn2holder{
@@ -90,12 +95,12 @@
 	}
 
 	&__button2{
-		color: #097981;
-		font-family: 'Balsamiq Sans';
+		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 13px;
+		font-size: 25px;
 		line-height: 24px;
+		color: #097981;
 		border: none;
 		background-color: transparent;
 		cursor: pointer;
@@ -112,7 +117,68 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		margin-bottom: 19px;
+		margin-bottom: -5px;
+	}
+	&__paragraph{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 24px;
+	}
+	&__google{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 650px;
+		height: 60px;
+		border: 1px solid #000000;
+		border-radius: 8px;
+		background: transparent;
+		cursor: pointer;
+
+
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 300;
+		font-size: 25px;
+		line-height: 24px;
+		color: #000000;
+	}
+	&__google-img{
+		margin-right: 47px;
+	}
+	&__hr-container{
+		display: flex;
+		margin-bottom: 20px;
+	}
+	&__hr{
+		width: 40%;
+		height: 0;
+		color: #000000;
+	}
+	&__hr-span{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 24px;
+	}
+	&__label{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #087B83;
+		position: absolute;
+		left: 4%;
+		top: -14%;
+		background-color: #FFFFFF;
+		width: 150px;
+	}
+	&__label-password{
+		width: 123px;
 	}
 }
 .forgot-password__container{
