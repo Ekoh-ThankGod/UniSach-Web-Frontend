@@ -1,0 +1,77 @@
+.signup-token{
+	&__container{
+		height: 100px;
+		width: 100%;
+		background-color: red;
+		padding-top: 60px;
+		background: rgba(8, 123, 131, 0.47);
+
+		display: flex;
+		justify-content: center;
+	}
+	&__ash{
+		width: 900px;
+		height: 500px;
+		background-color: blue;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: #FAF8F8;
+	}
+	&__h2{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+	}
+	&__input{
+		width: 60px;
+		height: 40px;
+		margin-top: 40px;
+		border: none;
+	}
+
+	&__input:not(:last-child){
+		margin-right: 20px;
+	}
+	&__button{
+		width: 70px;
+		height: 50px;
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 24px;
+		cursor: pointer;
+		outline: none;
+		background-color: #087B83;
+		border-radius: 8px;
+		border: none;
+		margin-top: 40px;
+	}
+	&__texts{
+		margin-top: 20px;
+	}
+
+	&__comment{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 24px;
+		margin-right: 10px;
+	}
+
+	&__resend{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 13px;
+		line-height: 24px;
+		color: #C86810;
+	}
+
+	
+}
