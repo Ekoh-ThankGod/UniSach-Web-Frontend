@@ -3,6 +3,7 @@ import "./signup.styles.scss";
 import ProfileAddress from "../../components/profileaddress/profile-address.component.jsx";
 import AddImage from "../../components/add-image/add-image.component.jsx";
 import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx";
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () =>{
 
@@ -33,6 +34,8 @@ const SignUpPage = () =>{
 	const [others, setOthers] = useState("");
 	const [inputDisplay, setInputDisplay] = useState("");
 	const [addImageDisplay, setAddImageDisplay] = useState("signup-container__display");
+
+	const navigate = useNavigate();
 
 
 	// Handles the changes in the input
@@ -94,41 +97,61 @@ const SignUpPage = () =>{
 		let placeholders;
 		setCount(count+1);
 
-		const {password, confirmPassword, email,firstName, lastName, phone} = createAccountDetailsValues;
-
-		if(password === "" || confirmPassword === "" || email === "" 
-			|| lastName === "" || firstName=== ""|| phone === ""){
-			handleErrorMessage("Please fill all the input fields!");
-			return;
-		}
-
-		// Password Validation
-
-		if(password !== confirmPassword || password===""){
-			handleErrorMessage("Passwords do not match!");
-			return;
-		}
-
-		if(password.length < 8){
-			handleErrorMessage("Password must be atleast 8 characters!");
-			return;
-		}
-		else{
-			setErrorVisibility("signup-container__circle-display");
-		}
-
-		if(!validateEmail(email)){
-			handleErrorMessage("Not a valid email address!");
-			return;
-		}
-
 		if(count === 1){
+			const {password, confirmPassword, email,firstName, lastName, phone} = createAccountDetailsValues;
+
+			if(password === "" || confirmPassword === "" || email === "" 
+				|| lastName === "" || firstName=== ""|| phone === ""){
+				handleErrorMessage("Please fill all the input fields!");
+				return;
+			}
+
+			// Password Validation
+
+			if(password !== confirmPassword || password===""){
+				handleErrorMessage("Passwords do not match!");
+				return;
+			}
+
+			if(password.length < 8){
+				handleErrorMessage("Password must be atleast 8 characters!");
+				return;
+			}
+			else{
+				setErrorVisibility("signup-container__circle-display");
+			}
+
+			if(!validateEmail(email)){
+				handleErrorMessage("Not a valid email address!");
+				return;
+			}
+
+			fetch("https://unisach-dev.onrender.com/api/users/auth/signup", {
+				method: "POST",
+				headers: {"Content-Type": "application/json"},
+				body: JSON.stringify({
+					"first_name": "John",
+				    "last_name": "Doe",
+				    "password": "test1234",
+				    "email": "doe@gmail.com",
+				    "phone": "+234123456789",
+				    "role": "Pharmacist"
+
+				})
+			})
+			.then(res => res.json())
+			.then(result => {
+				if(result.data){
+					navigate("/signup/token")
+				}
+			})
+			.catch(err => console.log(err.data))
+
 			placeholders = [{id:"qwe", name: "Pharmacy Name"}, {id:"asr",name: "Pharmacy Type"}, {id:"gft", name: "Pharmacy Email"}, 
 							{id:"kgy",name: "Pharmacy Phone No"}, {id:"csr", name: "Pharmacy Motto"}, {id:"tyu", name:"Pharmacy License No"}]
 
 			changePlaceHolder(placeholders);
 			setHeading("Pharmacy Registration");
-			// setClassDisplay("signup-container__display");
 			setClassDisplayAddress("");
 		}
 		else if(count === 2){
