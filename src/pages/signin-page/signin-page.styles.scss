@@ -25,6 +25,7 @@
 		width: 500px;
 		height: 600px;
 		border-radius: 8px;
+		box-shadow: 1px -8px 21px rgba(0, 0, 0, 0.25);
 	}
 
 	&__heading{
@@ -40,28 +41,30 @@
 		display: flex;
 		flex-direction: column;
 	}
+
+	&__inputs-margin{
+		margin-bottom: 30px;
+	}
 	&__inputs-container{
 		position: relative;
 	}
 	&__input{
-		width: 369px;
-		height: 60px;
+		width: 350px;
+		height: 50px;
 		border-radius: 10px;
 		border: 1px solid #087B83;
-		margin-bottom: 25px;
 		background-color: #F9F4F4;
 	}
-	// &__input:not(:last-child){
-		
-	// }
 
 	&__check-box__container{
 		display: flex;
-		justify-content: space-between;
+		margin-bottom: 30px;
 	}
 	&__inputcontainer{
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		margin-right: 30px;
 	}
 	&__remember{
 		font-family: 'Roboto';
@@ -85,12 +88,12 @@
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 300;
-		font-size: 30px;
+		font-size: 24px;
 		line-height: 24px;
 		color: #FFFFFF;
-		background: #087B83;
+		background: #C86810;
 		border-radius: 8px;
-		width: 369px;
+		width: 350px;
 		height: 60px;
 		border: none;
 		cursor: pointer;
@@ -162,7 +165,7 @@
 		margin-bottom: 20px;
 	}
 	&__hr{
-		width: 40%;
+		width: 142px;
 		height: 0;
 		color: #000000;
 	}
@@ -172,6 +175,8 @@
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 24px;
+		margin-right: 20px;
+		margin-left: 20px;
 	}
 	&__label{
 		font-family: 'Poppins';
@@ -191,5 +196,5 @@
 	}
 }
 .forgot-password__container{
-	margin-bottom: 14px;
+	
 }

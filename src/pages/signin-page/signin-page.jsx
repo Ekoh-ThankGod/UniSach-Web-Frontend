@@ -41,7 +41,7 @@ const SignInPage = ({setUserData}) =>{
 					<div className="signin-page__welcome">
 						<h2 className="signin-page__heading">Welcome back</h2>
 						<div className="signin-page__inputs">
-							<div className="signin-page__inputs-container">
+							<div className="signin-page__inputs-container signin-page__inputs-margin">
 								<input onChange={(event) => onSignInInput(event)} type="email" name="email" 
 								className="signin-page__input"/>
 								<label className="signin-page__label">Email adress</label>

@@ -4,7 +4,7 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const TokenPage = () => {
+const TokenPage = ({email}) => {
 
 	const [otp1, setOtp1] = useState("");
 	const [otp2, setOtp2] = useState("");
@@ -47,7 +47,13 @@ const TokenPage = () => {
 		else if(tabIndex===5){setOtp5(value)}
 		else if(tabIndex===6){setOtp6(value)}
 	}
-
+    const handleTokenResend = (event) =>{
+    	axios.get("https://unisach-dev.onrender.comapi/users/auth/resendotp")
+    	.then(res => {
+    		console.log(res)
+    	})
+    	.catch(err => console.log(err))
+    }
 	const onTokenSubmit = (event) => {
 		event.preventDefault();
 
@@ -58,11 +64,11 @@ const TokenPage = () => {
 		}
 
 		axios.post("https://unisach-dev.onrender.com/api/users/auth/verifyotp",{
-			email: "",
+			email: email,
 			otp: otp
 		})
 		.then(response => {
-			if(response){
+			if(response.data.data){
 				console.log(response.data.data)
 				navigate("/signup");
 			}
@@ -71,8 +77,8 @@ const TokenPage = () => {
 			if(err.response.data.message)
 				setTokenError(err.response.data.message);
 				setDisplayTokenError("");
-				navigate("/signup");
-			}
+				setOtp1("");setOtp2("");setOtp3("");
+				setOtp4("");setOtp5("");setOtp6("");		}
 		);
 
 	}
@@ -100,7 +106,7 @@ const TokenPage = () => {
 				<button className="signup-token__button" type="submit">OK</button>
 				<div className="signup-token__texts">
 					<span className="signup-token__comment">Didn't get otp</span>
-					<span className="signup-token__resend">Resend</span>
+					<button className="signup-token__resend" onClick={(event) => handleTokenResend(event) }>Resend</button>
 				</div>
 				<span className={`signup-token__error ${displayTokenError}`}>{tokenError}</span>
 			</form>

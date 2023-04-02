@@ -4,9 +4,18 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const SignUpPage = () =>{	
+const SignUpPage = ({email, setEmail}) =>{	
 	const navigate = useNavigate();
 
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
+	const [phone, setPhone] = useState("");
+
+	const [signUpError, setSignUpError] = useState("sign up error");
+	const [displaySignUpError, setDisplaySignUpError] = useState("signup-container__error-display");
+ 
 	const inputParameters = [{id: 1, type:"text", className:"signup-container__input-margin", name: "first Name", placeholder:"First Name"},
 		{id: 2, type:"text", className:"", name: "last Name", placeholder:"Last Name"},
 		{id: 3, type:"email", className:"signup-container__input-margin", name: "email", placeholder:"Email"},
@@ -26,18 +35,61 @@ const SignUpPage = () =>{
 		}
 	}
 
-	const handleErrorMessage = (message) =>{
-		
+	const onInputChange = (event) =>{
+		const {name, value} = event.target;
+		if(name === "first Name"){
+			setFirstName(value);
+		}else if(name === "last Name"){
+			setLastName(value);
+		}else if(name === "email"){
+			setEmail(value)
+		}else if(name === "phone number"){
+			setPhone(value)
+		}else if(name === "password"){
+			setPassword(value)
+		}else if(name === "confirmPassword"){
+			setConfirmPassword(value)
+		}
+	}
+
+	const handleSignUpError =(errorMessage) => {
+		setDisplaySignUpError("");
+		setSignUpError(errorMessage);
 	}
 	
 	// handles the clicking of the button on register page
-	const onButtonClick = (event) =>{
+	const onSignUpButtonSubmit = (event) =>{
+		event.preventDefault();
+
+		if(firstName === "" || lastName === "" || password === "" || confirmPassword === "" || email === "" || phone === ""){
+			handleSignUpError("please fill all inpput fields");
+			return;
+		}
+
+		if(!validateEmail(email)){
+			handleSignUpError("invalid email address");
+			return;
+		}
+
+		if(password !== confirmPassword){
+			handleSignUpError("passwords do not match");
+			console.log("Equal");
+			return;
+		}
+
+		if(password.length < 8){
+			handleSignUpError("passwords must be up to 8 characters");
+			return;
+		}
+		
+		setDisplaySignUpError("signup-container__error-display");
+
 		axios.post("https://unisach-dev.onrender.com/api/users/auth/signup",{
-				first_name: "",
-			 	last_name: "",
-			 	password: "",
-			 	email: "",
-			 	phone: "",
+				first_name: firstName,
+			 	last_name: lastName,
+			 	password: password,
+			 	email: email,
+			 	phone: phone,
 			 	role: "Pharmacist"
 				})
 			.then(response => {
@@ -45,7 +97,11 @@ const SignUpPage = () =>{
 					navigate("/signup/token")
 				}
 			})
-			.catch(err => console.log(err.response.data.message));
+			.catch(err => {
+				if(err.response.data.message){
+					handleSignUpError(err.response.data.message);
+				}
+			});
 		
 	}
 
@@ -53,20 +109,22 @@ const SignUpPage = () =>{
 		<div className="signup-container">
 			<UnisachLogo/>
 			<div className="signup-container__background">
-			<div className="signup-container__input-header">
+			<form onSubmit={(e) => onSignUpButtonSubmit(e)} className="signup-container__input-header">
 				<h1 className="signup-container__header">Enter details to create account</h1>
 				<div className="signup-container__inputholder">
 				{
 					inputParameters.map(el => {
-						const {placeholder, name, id, className} = el;
+						const {placeholder, name, id, className, type} = el;
 						return(
-							<input key={id} className={`signup-container__input ${className}`} name={name} placeholder={placeholder}/>
+							<input onChange={(event) =>onInputChange(event)} key={id} className={`signup-container__input ${className}`}
+							 name={name} type={type} placeholder={placeholder}/>
 						)
 					})
 				}
 				</div>
-				<button className="signup-container__button" onSubmit={(event) => onButtonClick(event)}>Continue</button>
-			</div>
+				<button className="signup-container__button" type="submit">Continue</button>
+				<span className={`signup-container__error ${displaySignUpError}`}>{signUpError}</span>
+			</form>
 			</div>
 		</div>
 	)

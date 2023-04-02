@@ -43,6 +43,7 @@
 	}
 	&__input-margin{
 		margin-right: 20px;
+		margin-bottom: 20px;
 	}
 
 	&__input{
@@ -50,12 +51,30 @@
 		height: 40px;
 		border: 1px solid #000000;
 		border-radius: 8px;
-		margin-bottom: 25px;
 	}
 
 	&__button{
 		width: 200px;
 		height: 50px;
 		margin-bottom: 20px;
+		background: #C86810;
+		border-radius: 8px;
+		border: none;
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		color: #FFFFFF;
+		cursor: pointer;
+	}
+
+	&__error{
+		color: red;
+		padding-bottom: 20px;
+	}
+
+	&__error-display{
+		visibility: hidden;
 	}
 }
