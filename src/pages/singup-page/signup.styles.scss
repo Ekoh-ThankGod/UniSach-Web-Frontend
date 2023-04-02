@@ -1,147 +1,61 @@
 .signup-container{
-	height: 634px;
-	margin: 0 auto;
-	width: 100%;
+	position: relative;
 
-	&__overall{
+	&__background{
 		background: rgba(8, 123, 131, 0.47);
+		height: 100px;
+		width: 100%;
 		padding-top: 60px;
-		height: 100px;	
 	}
 
-	&__text{
-		margin-top: 50px;
-		margin-bottom: 50px;
-		color: #FFFFFF;
-		font-family: 'Poppins';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 34px;
-		line-height: 24px;
+	&__input-header{
+		position: absolute;
+		top: 60%;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #FAF8F8;
+		box-shadow: 1px -8px 21px rgba(0, 0, 0, 0.25);
+		border-radius: 8px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		max-width: 590px;
 	}
-	&__account{
-		
-	}
+
 	&__header{
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 20px;
+		font-size: 24px;
 		line-height: 24px;
+		color: #000000;
 	}
-	&__margin{
-		width: 900px;
-		height: 450px;
-		// box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-		background-color:  #F9F4F4;
-		text-align: center;
-		margin: 0 auto;
+
+	&__inputholder{
 		display: flex;
-		flex-direction: column;
-		align-items: center;
+		flex-wrap: wrap;
 		justify-content: center;
-		border-radius: 8px;	
+		padding-bottom: 20px;
+		padding-top: 20px;
 	}
-
-	&__input{
-		width: 300px;
-		height: 40px;
-		border: 1px solid #000000;
-		border-radius: 8px;
-		margin-bottom: 15px;
-		border-radius: 4px;
-		background-color:  #F9F4F4;
-
-		font-family: 'Poppins';
-		font-style: normal;
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 24px;
-		padding-left: 10px;
-	}
-
-	&__common{
-		margin-right: 50px;
-	}
-
-	&__buttonholder{
-		
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	&__small{
-		width: 85%;
-		display: flex;
-		align-items: center;
-		margin-right: 45px;
-	}
-
-	&__circle{
-		width: 12px;
-		height: 12px;
-		background-color: #097981;
-		border-radius: 50%;
+	&__input-margin{
 		margin-right: 20px;
 	}
 
-	&__circle-big, &__circle-big1, &__circle-big2{
-		width: 21px;
-		height: 21px;
-	}
-
-	&__circle-display{
-		visibility: hidden;
+	&__input{
+		width: 250px;
+		height: 40px;
+		border: 1px solid #000000;
+		border-radius: 8px;
+		margin-bottom: 25px;
 	}
 
 	&__button{
-		width: 300px;
-		height: 52px;
-		background: #087B83;
-		border-radius: 8px;
-		outline: none;
-		border: none;
-		cursor: pointer;
-		color: #FFFFFF;
-		font-family: 'Poppins';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 24px;
+		width: 200px;
+		height: 50px;
+		margin-bottom: 20px;
 	}
-	&__span{
-		font-family: 'Poppins';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 24px;
-		margin-bottom: 40px;
-		margin-top: 40px;
-	}
-
-	&__display{
-		display: none;
-	}
-
-	&__error{
-		font-family: 'Poppins';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 24px;
-		margin-top: 5px;
-		color: #8B0000;
-	}
-}
-
-::placeholder{
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 24px;
-	padding-left: 10px;
-	color: #666666;
 }

@@ -2,6 +2,7 @@ import {useState} from "react";
 import "./signup-token.styles.scss";
 import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx";
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const TokenPage = () => {
 
@@ -56,23 +57,24 @@ const TokenPage = () => {
 			return;
 		}
 
-		fetch("https://unisach-dev.onrender.com/api/users/auth/verifyotp", {
-			method: "POST",
-			headers: {'Content-Type': 'application/json'}, 
-			body: JSON.stringify({
-				"email": "johndoe@gmail.com",
-				"otp": otp
-			})
+		axios.post("https://unisach-dev.onrender.com/api/users/auth/verifyotp",{
+			email: "",
+			otp: otp
 		})
-		.then(response => response.json())
-		.then(result => console.log(result))
-		.catch(err => {
-			if(err){
-				console.log("dvkdvdvjvk")
-				setDisplayTokenError("");
-				setTokenError("Wrong OTP");
+		.then(response => {
+			if(response){
+				console.log(response.data.data)
+				navigate("/signup");
 			}
-		});
+		})
+		.catch(err => {
+			if(err.response.data.message)
+				setTokenError(err.response.data.message);
+				setDisplayTokenError("");
+				navigate("/signup");
+			}
+		);
+
 	}
  
 	return(

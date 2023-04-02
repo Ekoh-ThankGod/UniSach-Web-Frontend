@@ -1,13 +1,16 @@
 import "./signin-page.styles.scss";
 import {useState} from "react";
 import {Link} from "react-router-dom";
-import logo from "../../assets/logo/unisachlogo.png";
 import google from "../../assets/logo/google.png";
 import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
-const SignInPage = () =>{
+const SignInPage = ({setUserData}) =>{
 	const [userName, setUserName] = useState("");
 	const [password, setPassword] = useState("");
+
+	const navigate = useNavigate();
 
 	const onSignInInput = (event) =>{
 		const {name, value} = event.target; 
@@ -15,12 +18,19 @@ const SignInPage = () =>{
 		else{setPassword(value)}
 	}
 
-	// console.log(userName);
-	// console.log(password);
-
 
 	const onSignInButton = (event) =>{
-		// console.log(event.target);	
+		axios.post("https://unisach-dev.onrender.com/api/users/auth/login",{
+				email: userName,
+			 	password: password
+				})
+			.then(response => {
+				if(response){
+					setUserData(response.data.data);
+					navigate("/")
+				}
+			})
+			.catch(err => console.log(err.response.data.message));	
 	}
 
 	return(

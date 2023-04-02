@@ -3,7 +3,7 @@ import upload from "../../assets/logo/upload.png"
 
 const AddImage = ({addImageDisplay}) =>{
 	return(
-		<div className={`add-image ${addImageDisplay}`}>
+		<div className="add-image">
 			<textarea className="add-image__textarea" id="w3review" name="w3review" rows="6" 
 			cols="60" placeholder ="Details"></textarea>
 			<div className="add-image__container">
