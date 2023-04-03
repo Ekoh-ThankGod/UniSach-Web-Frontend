@@ -1,16 +1,22 @@
 import SignInPage from "./pages/signin-page/signin-page.jsx";
 import SignUpPage from "./pages/singup-page/signup.component.jsx";
 import './App.scss';
+import {useState} from "react";
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./pages/home-page/home-page.component.jsx";
 import TokenPage from "./pages/signup-token/signup-token.component.jsx";
 import Footer from "./components/footer/footer.component.jsx";
-import {useState} from "react";
+import PharmacyRegistration from "./pages/pharmacy-registration/pharmacy-registration.component.jsx";
+import ForgotPassword from "./pages/forgot-password/forgot-password.component.jsx";
+import ForgotConfirmEmail from "./pages/forgot-confirmemail/forgot-confirmemail.component.jsx";
+import ForgotPasswordCode from "./pages/forgot-password-confirm-code/forgot-password-confirm-code.component.jsx";
 
 function App() {
 
   const [userData, setUserData] = useState({});
   const [email, setEmail] = useState("");
+
+  // console.log(userData);
 
   return (
     <div className="App">
@@ -19,6 +25,10 @@ function App() {
          <Route path="/signin" element={<SignInPage setUserData={setUserData}/>}/>
          <Route path="/signup" element={<SignUpPage email={email} setEmail={setEmail}/>}/>
          <Route path="/signup/token" element={<TokenPage email={email} />}/>
+         <Route path="/pharmacy-registration" element={<PharmacyRegistration/>}/>
+         <Route path="/forgot-password" element={<ForgotPassword/>} />
+         <Route path="/forgot-password/confirm-email" element={<ForgotConfirmEmail/>} />
+         <Route path="/forgot-password/code" element={<ForgotPasswordCode/>}/>
       </Routes>
       <Footer/>
     </div>

@@ -48,11 +48,11 @@ const TokenPage = ({email}) => {
 		else if(tabIndex===6){setOtp6(value)}
 	}
     const handleTokenResend = (event) =>{
-    	axios.get("https://unisach-dev.onrender.comapi/users/auth/resendotp")
+    	axios.get("https://unisach-dev.onrender.com/api/users/auth/resendotp")
     	.then(res => {
     		console.log(res)
     	})
-    	.catch(err => console.log(err))
+    	.catch(err => console.log(err.response.data.message))
     }
 	const onTokenSubmit = (event) => {
 		event.preventDefault();
@@ -70,7 +70,7 @@ const TokenPage = ({email}) => {
 		.then(response => {
 			if(response.data.data){
 				console.log(response.data.data)
-				navigate("/signup");
+				navigate("/pharmacy-registration");
 			}
 		})
 		.catch(err => {

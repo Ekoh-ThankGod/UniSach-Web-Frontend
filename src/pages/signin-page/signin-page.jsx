@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 const SignInPage = ({setUserData}) =>{
 	const [userName, setUserName] = useState("");
 	const [password, setPassword] = useState("");
+	const [rememberPassword, setRememberPassword] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -16,6 +17,10 @@ const SignInPage = ({setUserData}) =>{
 		const {name, value} = event.target; 
 		if(name === "email"){setUserName(value)}
 		else{setPassword(value)}
+	}
+
+	const onhandleCheckBoxChange = (event) =>{
+		console.log(event.target.checked);
 	}
 
 
@@ -32,6 +37,7 @@ const SignInPage = ({setUserData}) =>{
 			})
 			.catch(err => console.log(err.response.data.message));	
 	}
+	console.log(rememberPassword);
 
 	return(
 		<div className="signin-page__container">
@@ -54,11 +60,11 @@ const SignInPage = ({setUserData}) =>{
 						</div>
 						<div className="signin-page__check-box__container">
 							<div className="signin-page__inputcontainer">
-								<input onChange={(event) => onSignInInput(event)} type="checkbox" className="signin-page__check-box"/>
+								<input onChange={(event) => onhandleCheckBoxChange(event)} type="checkbox" className="signin-page__check-box"/>
 								<span className="signin-page__remember">Remember me</span>
 							</div>
 							<div className="forgot-password__container">
-								<Link to="" className="signin-page__forgot">Forgot your password?</Link>
+								<Link to="/forgot-password" className="signin-page__forgot">Forgot your password?</Link>
 							</div>
 						</div>
 						<button onClick={(event) => onSignInButton(event)} className="signin-page__button1">Sign in</button>
