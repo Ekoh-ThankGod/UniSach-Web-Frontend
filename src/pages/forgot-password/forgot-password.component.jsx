@@ -8,7 +8,7 @@ const ForgotPassword = () =>{
 	const navigate = useNavigate();
 
 	const handleBackClick =(event) =>{
-		navigate("/signin")
+		navigate("/login")
 	}
 
 	const handleNextClick = (event)  =>{

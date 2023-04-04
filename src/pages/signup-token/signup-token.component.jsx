@@ -48,7 +48,7 @@ const TokenPage = ({email}) => {
 		else if(tabIndex===6){setOtp6(value)}
 	}
     const handleTokenResend = (event) =>{
-    	axios.get("https://unisach-dev.onrender.com/api/users/auth/resendotp")
+    	axios.get(`https://unisach-dev.onrender.com/api/users/auth/resendotp/${email}`)
     	.then(res => {
     		console.log(res)
     	})

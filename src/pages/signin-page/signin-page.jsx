@@ -30,14 +30,19 @@ const SignInPage = ({setUserData}) =>{
 			 	password: password
 				})
 			.then(response => {
-				if(response){
-					setUserData(response.data.data);
-					navigate("/")
+				if(response.data.data){
+					if(response.data.data.message === "Please verify your email to continue your Registration process"){
+						console.log(response.data.data.message)
+					}
+					else{
+						console.log(response.data.data.user);
+						setUserData(response.data.data);
+						navigate("/")
+					};
 				}
 			})
 			.catch(err => console.log(err.response.data.message));	
 	}
-	console.log(rememberPassword);
 
 	return(
 		<div className="signin-page__container">

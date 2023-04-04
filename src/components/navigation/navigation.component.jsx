@@ -19,7 +19,7 @@ const Navigation = () =>{
 			</div>
 			<div className="login-signup">
 				<div className="login-signup__container">
-					<Link to="/signin">
+					<Link to="/login">
 						<button className="login-signup__login login-signup__common">Login</button>
 					</Link>	
 					<Link to="/signup">

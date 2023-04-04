@@ -21,7 +21,7 @@ const PharmacyRegistration = () => {
 							registerPharmacy.map(el =>{
 								const {id, name, type, placeholder, className} = el;
 								return(
-									<div id={id} className="pharmcay-registration__input-container">
+									<div key={id} className="pharmcay-registration__input-container">
 										<input name={name} type={type} placeholder={placeholder} className={`pharmacy-registration__input ${className}`}/>
 									</div>
 								)
