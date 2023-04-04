@@ -10,7 +10,7 @@ const RegisterPharmacyUpload = () =>{
 				<div className="pharmacy-registration-upload__ash">
 					<textarea className="pharmacy-registration-upload__textarea" rows="6" cols="50" placeholder="Details"></textarea>
 					<button className="pharmacy-registration-upload__button">
-						<img src={upload} alt="upload picture"/>
+						<img src={upload} alt="upload"/>
 					</button>
 					<div className="pharmacy-registration-upload__addattach">
 						<span className="pharmacy-registration-upload__span">Add attachment</span>

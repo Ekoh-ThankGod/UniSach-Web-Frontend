@@ -4,7 +4,7 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import {useState} from "react";
 import axios from "axios";
 
-const ForgotPasswordCode = ({email}) =>{
+const ForgotPasswordCode = ({email, setLoader}) =>{
 
 	const navigate = useNavigate();
 
@@ -19,10 +19,10 @@ const ForgotPasswordCode = ({email}) =>{
 	const handlePasswordResetChange = (event) => {
 		const {value, name} = event.target;
 		if(name === "password"){
-			setNewPassword(event.target.value);
+			setNewPassword(value);
 		}
 		else if(name === "confirm password"){
-			setConfirmNewPassword(event.target.value);
+			setConfirmNewPassword(value);
 		}
 	}
 
@@ -43,15 +43,19 @@ const ForgotPasswordCode = ({email}) =>{
 			console.log("password must be up to 8 characters")
 		}
 
+		setLoader(true);
+
 		axios.post(`https://unisach-dev.onrender.com/api/users/auth/passwordreset/${location.pathname.split("/")[3]}`,{
 			password: newPassword
 		})
 		.then(res => {
 			console.log(res.data.data)
-			navigate("/signin");
+			navigate("/login");
+			setLoader(false)
 		})
 		.catch(err => {
 			console.log(err.response.data.message);
+			setLoader(false)
 		})
 	}
 

@@ -1,9 +1,8 @@
 import "./forgot-confirmemail.styles.scss";
-import {useNavigate} from "react-router-dom";
 import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx";
 import axios from "axios";
 
-const ForgotConfirmEmail =({setEmail, email}) =>{
+const ForgotConfirmEmail =({setEmail, email, setLoader}) =>{
 
 
 	const handleEmailInputChange = (event) =>{
@@ -14,14 +13,18 @@ const ForgotConfirmEmail =({setEmail, email}) =>{
 	const handleEmailInputChangeSubmit =(event) =>{
 		event.preventDefault();
 
+		setLoader(true);
+
 		axios.post("https://unisach-dev.onrender.com/api/users/auth/forgotpassword",{
 			email: email
 		})
 		.then(res => {
-			console.log(res.data.data)
+			console.log(res.data.data);
+			setLoader(false)
 		})
 		.catch(err => {
-			console.log(err.response.data.message)
+			console.log(err.response.data.message);
+			setLoader(false)
 		})
 
 	}

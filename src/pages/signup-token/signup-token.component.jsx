@@ -4,7 +4,7 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const TokenPage = ({email}) => {
+const TokenPage = ({email, setLoader}) => {
 
 	const [otp1, setOtp1] = useState("");
 	const [otp2, setOtp2] = useState("");
@@ -36,6 +36,15 @@ const TokenPage = ({email}) => {
 		}
 	}
 
+	const checkOtpLength = () => {
+		if(otp.length < 6){
+			setOtp1("");setOtp2("");setOtp3("");
+			setOtp4("");setOtp5("");setOtp6("");
+			console.log("please fill all the boxes");
+			return true;
+		}
+	}
+
 	const handleTokenChange = (e) =>{
 
 		const {value, tabIndex} = e.target;
@@ -48,20 +57,26 @@ const TokenPage = ({email}) => {
 		else if(tabIndex===6){setOtp6(value)}
 	}
     const handleTokenResend = (event) =>{
+
+    	if(checkOtpLength()){return};
+    	setLoader(true);
+
     	axios.get(`https://unisach-dev.onrender.com/api/users/auth/resendotp/${email}`)
     	.then(res => {
-    		console.log(res)
+    		console.log(res);
+    		setLoader(false);
     	})
-    	.catch(err => console.log(err.response.data.message))
+    	.catch(err => {
+    		console.log(err.response.data.message);
+    		setLoader(false)
+    	})
     }
 	const onTokenSubmit = (event) => {
 		event.preventDefault();
 
-		if(otp.length < 6){
-			setOtp1("");setOtp2("");setOtp3("");
-			setOtp4("");setOtp5("");setOtp6("");
-			return;
-		}
+		if(checkOtpLength()){return};
+
+		setLoader(true);
 
 		axios.post("https://unisach-dev.onrender.com/api/users/auth/verifyotp",{
 			email: email,
@@ -71,6 +86,7 @@ const TokenPage = ({email}) => {
 			if(response.data.data){
 				console.log(response.data.data)
 				navigate("/pharmacy-registration");
+				setLoader(false)
 			}
 		})
 		.catch(err => {
@@ -78,7 +94,9 @@ const TokenPage = ({email}) => {
 				setTokenError(err.response.data.message);
 				setDisplayTokenError("");
 				setOtp1("");setOtp2("");setOtp3("");
-				setOtp4("");setOtp5("");setOtp6("");		}
+				setOtp4("");setOtp5("");setOtp6("");
+				setLoader(false);		
+			}
 		);
 
 	}

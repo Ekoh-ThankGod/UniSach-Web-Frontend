@@ -4,7 +4,7 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const SignUpPage = ({email, setEmail}) =>{	
+const SignUpPage = ({email, setEmail, setLoader}) =>{	
 	const navigate = useNavigate();
 
 	const [firstName, setFirstName] = useState("");
@@ -84,6 +84,8 @@ const SignUpPage = ({email, setEmail}) =>{
 		
 		setDisplaySignUpError("signup-container__error-display");
 
+		setLoader(true);
+
 		axios.post("https://unisach-dev.onrender.com/api/users/auth/signup",{
 				first_name: firstName,
 			 	last_name: lastName,
@@ -95,9 +97,11 @@ const SignUpPage = ({email, setEmail}) =>{
 			.then(response => {
 				if(response.data.data){
 					navigate("/signup/token")
+					setLoader(false);
 				}
 			})
 			.catch(err => {
+				setLoader(false);
 				if(err.response.data.message){
 					handleSignUpError(err.response.data.message);
 				}
