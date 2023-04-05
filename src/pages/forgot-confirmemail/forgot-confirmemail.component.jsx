@@ -1,17 +1,25 @@
 import "./forgot-confirmemail.styles.scss";
 import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx";
 import axios from "axios";
+import {useState} from "react";
 
-const ForgotConfirmEmail =({setEmail, email, setLoader}) =>{
+const ForgotConfirmEmail =({setEmail, email, setLoader, showNotificationError, showNotificationSuccess}) =>{
 
+	const[emailCheck, setEmailCheck] = useState("");
 
 	const handleEmailInputChange = (event) =>{
 		setEmail(event.target.value);
+		setEmailCheck(event.target.value);
 	}
 
 
 	const handleEmailInputChangeSubmit =(event) =>{
 		event.preventDefault();
+
+		if(emailCheck === ""){
+			showNotificationError("please fill in your email");
+			return;
+		};
 
 		setLoader(true);
 
@@ -19,11 +27,11 @@ const ForgotConfirmEmail =({setEmail, email, setLoader}) =>{
 			email: email
 		})
 		.then(res => {
-			console.log(res.data.data);
+			showNotificationSuccess(res.data.data);
 			setLoader(false)
 		})
 		.catch(err => {
-			console.log(err.response.data.message);
+			showNotificationError(err.response.data.message);
 			setLoader(false)
 		})
 

@@ -4,7 +4,7 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import {useState} from "react";
 import axios from "axios";
 
-const ForgotPasswordCode = ({email, setLoader}) =>{
+const ForgotPasswordCode = ({email, setLoader, showNotificationError, showNotificationSuccess}) =>{
 
 	const navigate = useNavigate();
 
@@ -31,16 +31,17 @@ const ForgotPasswordCode = ({email, setLoader}) =>{
 		event.preventDefault();
 
 		if(newPassword === "" || confirmNewPassword === ""){
-			console.log("fill in your details")
+			showNotificationError("please fill in your new password");
 			return;
 		}
 
 		if(newPassword !== confirmNewPassword){
-			console.log("passwords do not match");
+			showNotificationError("passwords do not match");
 			return;
 		}
 		if(newPassword.length < 8){
-			console.log("password must be up to 8 characters")
+			showNotificationError("password must be up to 8 characters");
+			return;
 		}
 
 		setLoader(true);
@@ -49,12 +50,12 @@ const ForgotPasswordCode = ({email, setLoader}) =>{
 			password: newPassword
 		})
 		.then(res => {
-			console.log(res.data.data)
+			showNotificationSuccess(res.data.data);
 			navigate("/login");
 			setLoader(false)
 		})
 		.catch(err => {
-			console.log(err.response.data.message);
+			showNotificationError(err.response.data.message);
 			setLoader(false)
 		})
 	}

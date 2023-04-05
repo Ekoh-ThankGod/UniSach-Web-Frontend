@@ -4,7 +4,7 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const TokenPage = ({email, setLoader}) => {
+const TokenPage = ({email, setLoader, showNotificationError, showNotificationSuccess}) => {
 
 	const [otp1, setOtp1] = useState("");
 	const [otp2, setOtp2] = useState("");
@@ -13,9 +13,7 @@ const TokenPage = ({email, setLoader}) => {
 	const [otp5, setOtp5] = useState("");
 	const [otp6, setOtp6] = useState("");
 
-	const [tokenError, setTokenError] = useState("tokensdf kfhfhdfhdf");
-	const [displayTokenError, setDisplayTokenError] = useState("signup-token__error-display");
-
+	
 	const otp = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
 	const navigate = useNavigate();
@@ -40,7 +38,7 @@ const TokenPage = ({email, setLoader}) => {
 		if(otp.length < 6){
 			setOtp1("");setOtp2("");setOtp3("");
 			setOtp4("");setOtp5("");setOtp6("");
-			console.log("please fill all the boxes");
+			showNotificationError("incorrect otp value");
 			return true;
 		}
 	}
@@ -57,18 +55,18 @@ const TokenPage = ({email, setLoader}) => {
 		else if(tabIndex===6){setOtp6(value)}
 	}
     const handleTokenResend = (event) =>{
+    	event.preventDefault();
 
-    	if(checkOtpLength()){return};
     	setLoader(true);
 
     	axios.get(`https://unisach-dev.onrender.com/api/users/auth/resendotp/${email}`)
     	.then(res => {
-    		console.log(res);
+    		showNotificationSuccess(res.data);
     		setLoader(false);
     	})
     	.catch(err => {
-    		console.log(err.response.data.message);
-    		setLoader(false)
+    		setLoader(false);
+    		showNotificationError(err.response.data.message);
     	})
     }
 	const onTokenSubmit = (event) => {
@@ -84,18 +82,17 @@ const TokenPage = ({email, setLoader}) => {
 		})
 		.then(response => {
 			if(response.data.data){
-				console.log(response.data.data)
+				showNotificationSuccess("otp successful");
 				navigate("/pharmacy-registration");
 				setLoader(false)
 			}
 		})
 		.catch(err => {
 			if(err.response.data.message)
-				setTokenError(err.response.data.message);
-				setDisplayTokenError("");
 				setOtp1("");setOtp2("");setOtp3("");
 				setOtp4("");setOtp5("");setOtp6("");
-				setLoader(false);		
+				setLoader(false);
+				showNotificationError(err.response.data.message);		
 			}
 		);
 
@@ -126,7 +123,6 @@ const TokenPage = ({email, setLoader}) => {
 					<span className="signup-token__comment">Didn't get otp</span>
 					<button className="signup-token__resend" onClick={(event) => handleTokenResend(event) }>Resend</button>
 				</div>
-				<span className={`signup-token__error ${displayTokenError}`}>{tokenError}</span>
 			</form>
 			</div>
 		</div>

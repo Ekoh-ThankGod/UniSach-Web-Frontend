@@ -75,19 +75,5 @@
 		border: none;
 		background: transparent;
 		cursor: pointer;
-	}
-
-	&__error{
-		color: red;
-		margin-top: 30px;
-		font-family: 'Poppins';
-		font-style: normal;
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 24px;
-	}
-
-	&__error-display{
-		visibility: hidden;
 	}	
 }

@@ -6,7 +6,7 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-const SignInPage = ({setUserData, setLoader}) =>{
+const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificationSuccess}) =>{
 	const [userName, setUserName] = useState("");
 	const [password, setPassword] = useState("");
 	const [rememberPassword, setRememberPassword] = useState(false);
@@ -27,7 +27,7 @@ const SignInPage = ({setUserData, setLoader}) =>{
 	const onSignInButton = (event) =>{
 
 		if(userName==="" || password===""){
-			console.log("please fill in your credentials");
+			showNotificationError("please fill in your credentials");
 			return;
 		}
 
@@ -40,10 +40,11 @@ const SignInPage = ({setUserData, setLoader}) =>{
 			.then(response => {
 				if(response.data.data){
 					if(response.data.data.message === "Please verify your email to continue your Registration process"){
-						console.log(response.data.data.message)
+						showNotificationSuccess(response.data.data.message);
 					}
 					else{
 						console.log(response.data.data.user);
+						showNotificationSuccess("login successful");
 						setUserData(response.data.data);
 						navigate("/");
 					};
@@ -51,7 +52,7 @@ const SignInPage = ({setUserData, setLoader}) =>{
 				}
 			})
 			.catch(err => {
-				console.log(err.response.data.message);
+				showNotificationError(err.response.data.message);
 				setLoader(false)
 			});	
 	}
