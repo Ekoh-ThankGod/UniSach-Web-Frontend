@@ -1,15 +1,18 @@
 import "./signin-page.styles.scss";
 import {useState} from "react";
 import {Link} from "react-router-dom";
-import google from "../../assets/logo/google.png";
 import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 
 const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificationSuccess}) =>{
 	const [userName, setUserName] = useState("");
 	const [password, setPassword] = useState("");
 	const [rememberPassword, setRememberPassword] = useState(false);
+
+	const clientId = "";
 
 	const navigate = useNavigate();
 
@@ -57,6 +60,21 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 			});	
 	}
 
+	const onHandleGoogleResponse = (response) => {
+		console.log(response.credential)
+
+		axios.post("https://unisach-dev.onrender.com/api/users/auth/signin/google",{
+	      token: response.credential,
+	      role: "Pharmacist"
+	      })
+	    .then(response =>{
+	      console.log(response)
+	    })
+	    .catch(err => {
+	      showNotificationError("unable to signin with google")
+	    })
+	}
+	
 	return(
 		<div className="signin-page__container">
 			<div className="signin-page__box">
@@ -96,8 +114,11 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 							<hr className="signin-page__hr"/> <span className="signin-page__hr-span">OR</span>
 							<hr className="signin-page__hr"/>
 						</div>
-						<button className="signin-page__google"><img className="signin-page__google-img" src={google} alt=""/>Continue with google</button>
-					</div>
+							<GoogleOAuthProvider clientId={clientId}>
+								<GoogleLogin onSuccess={credentialResponse => { onHandleGoogleResponse(credentialResponse)}} 
+								onError={() => {showNotificationError('Login with google Failed')}}/>
+						    </GoogleOAuthProvider>
+						</div>
 				</div>
 			</div>
 		</div>

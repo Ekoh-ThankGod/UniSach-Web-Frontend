@@ -22,8 +22,8 @@
 		justify-content: center;
 		align-items: center;
 		background-color: #F9F4F4;
-		width: 500px;
-		height: 600px;
+		width: 400px;
+		height: 500px;
 		border-radius: 8px;
 		box-shadow: 1px -8px 21px rgba(0, 0, 0, 0.25);
 	}
@@ -49,8 +49,8 @@
 		position: relative;
 	}
 	&__input{
-		width: 350px;
-		height: 50px;
+		width: 300px;
+		height: 40px;
 		border-radius: 10px;
 		border: 1px solid #087B83;
 		background-color: #F9F4F4;
@@ -93,8 +93,8 @@
 		color: #FFFFFF;
 		background: #C86810;
 		border-radius: 8px;
-		width: 350px;
-		height: 60px;
+		width: 300px;
+		height: 40px;
 		border: none;
 		cursor: pointer;
 		margin-bottom: 5px;
@@ -138,28 +138,7 @@
 		font-size: 16px;
 		line-height: 24px;
 	}
-	&__google{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 369px;
-		height: 60px;
-		border: 1px solid #000000;
-		border-radius: 8px;
-		background: transparent;
-		cursor: pointer;
 
-
-		font-family: 'Poppins';
-		font-style: normal;
-		font-weight: 300;
-		font-size: 16px;
-		line-height: 24px;
-		color: #000000;
-	}
-	&__google-img{
-		margin-right: 47px;
-	}
 	&__hr-container{
 		display: flex;
 		margin-bottom: 20px;
@@ -186,8 +165,8 @@
 		line-height: 24px;
 		color: #087B83;
 		position: absolute;
-		left: 8%;
-		top: -14%;
+		left: 5%;
+		top: -25%;
 		background-color: #F9F4F4;
 		width: 117px;
 	}
@@ -195,6 +174,4 @@
 		width: 100px;
 	}
 }
-.forgot-password__container{
-	
-}
+
