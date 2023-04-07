@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import "./signup-token.styles.scss";
 import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx";
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +12,8 @@ const TokenPage = ({email, setLoader, showNotificationError, showNotificationSuc
 	const [otp4, setOtp4] = useState("");
 	const [otp5, setOtp5] = useState("");
 	const [otp6, setOtp6] = useState("");
+
+	const [receiveOtpTimer, setReceiveOtpTimer] = useState(15)
 
 	
 	const otp = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
@@ -97,6 +99,21 @@ const TokenPage = ({email, setLoader, showNotificationError, showNotificationSuc
 		);
 
 	}
+
+	// set countdown for resending OTP
+
+	useEffect(() => {
+		let timeLeft = 15;
+		let otpTimer = setInterval(() => {
+
+			timeLeft--;
+			setReceiveOtpTimer(timeLeft);
+
+			if(timeLeft <= 0){
+				clearInterval(otpTimer)
+			}
+		}, [1000])
+	}, [])
  
 	return(
 		<div className="">
@@ -120,7 +137,7 @@ const TokenPage = ({email, setLoader, showNotificationError, showNotificationSuc
 				</div>
 				<button className="signup-token__button" type="submit">OK</button>
 				<div className="signup-token__texts">
-					<span className="signup-token__comment">Didn't get otp</span>
+					<span className="signup-token__comment">Didn't get otp? Resend the code in {receiveOtpTimer} sec</span>
 					<button className="signup-token__resend" onClick={(event) => handleTokenResend(event) }>Resend</button>
 				</div>
 			</form>

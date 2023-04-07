@@ -22,8 +22,10 @@
 		align-items: center;
 
 		width: 590px;
+		padding-right: 20px;
+		padding-left: 20px;
 		padding-top: 30px;
-		padding-bottom: 30px;
+		padding-bottom: 20px;
 	}
 
 	&__h1{
@@ -42,7 +44,7 @@
 		font-size: 16px;
 		line-height: 24px;
 
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 	}
 
 	&__input{
@@ -53,7 +55,7 @@
 		width: 350px;
 		height: 40px;
 
-		margin-bottom: 30px;
+		margin-bottom: 40px;
 	}
 
 	&__button{
@@ -66,10 +68,10 @@
 		font-size: 18px;
 		line-height: 24px;
 		border: none;
-		width: 200px;
+		width: 190px;
 		height: 45px;
 		cursor: pointer;
 
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 	}
 }

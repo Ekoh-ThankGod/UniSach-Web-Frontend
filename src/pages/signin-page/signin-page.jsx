@@ -12,7 +12,7 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 	const [password, setPassword] = useState("");
 	const [rememberPassword, setRememberPassword] = useState(false);
 
-	const clientId = "";
+	const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 	const navigate = useNavigate();
 
@@ -60,18 +60,25 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 			});	
 	}
 
+	// signin with google
+
 	const onHandleGoogleResponse = (response) => {
-		console.log(response.credential)
+		
+		setLoader(true);
 
 		axios.post("https://unisach-dev.onrender.com/api/users/auth/signin/google",{
 	      token: response.credential,
 	      role: "Pharmacist"
 	      })
 	    .then(response =>{
-	      console.log(response)
+	      if(response.data.data){
+	      	navigate("/")
+	      	setLoader(false);
+	      	showNotificationSuccess("signin successful")
+	      }
 	    })
 	    .catch(err => {
-	      showNotificationError("unable to signin with google")
+	      showNotificationError("Unable to signin with google")
 	    })
 	}
 	
