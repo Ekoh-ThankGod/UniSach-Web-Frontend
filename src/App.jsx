@@ -11,6 +11,8 @@ import ForgotPassword from "./pages/forgot-password/forgot-password.component.js
 import ForgotConfirmEmail from "./pages/forgot-confirmemail/forgot-confirmemail.component.jsx";
 import ForgotPasswordCode from "./pages/forgot-password-confirm-code/forgot-password-confirm-code.component.jsx";
 import RegisterPharmacyUpload from "./pages/signup-pharmacy-upload/signup-pharmacy-upload.component.jsx";
+import ProfilePage from "./pages/profile/profile.component.jsx";
+import Protected from "./components/protected/protected.component.jsx";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -44,10 +46,10 @@ function App() {
          setLoader={setLoader} setUserData={setUserData} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess}/>}/>
 
          <Route path="/signup" element={loader ? <Loader show={loader} type = "box"/> : <SignUpPage 
-         setLoader={setLoader} email={email} setEmail={setEmail} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess}/>}/>
+         setLoader={setLoader} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess}/>}/>
 
          <Route path="/signup/token" element={loader ? <Loader show={loader} type = "box"/> : <TokenPage 
-         setLoader={setLoader} email={email} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess} />}/>
+         setLoader={setLoader} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess} />}/>
 
          <Route path="/pharmacy-registration" element={<PharmacyRegistration/>}/>
 
@@ -60,6 +62,8 @@ function App() {
 
          <Route path="/forgot-password/password-reset/:token" element={loader ? <Loader show={loader} type = "box"/> : <ForgotPasswordCode 
          setLoader={setLoader} email={email} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess}/>}/>
+
+         <Route path="/dashboard" element={<Protected><ProfilePage/></Protected>}/>
       </Routes>
       <Footer/>
     </div>

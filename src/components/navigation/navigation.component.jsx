@@ -1,7 +1,38 @@
 import "./navigation.styles.scss";
 import logo from "../../assets/logo/unisachlogo.png";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import profile from "../../assets/logo/profile.png";
+
+
 const Navigation = () =>{
+	const user = JSON.parse(localStorage.getItem("user"));
+	const navigate = useNavigate();
+	let displayButton;
+
+	const onHandleSignOut = (event) =>{
+		localStorage.removeItem("user");
+		localStorage.removeItem("email");
+		navigate("/");
+	}
+
+	if(user || user?.accessToken){
+		displayButton = <div className="profile-picture__change-holder">
+							<Link to="/dashboard"><img src={profile} alt="profile" className="profile-picture__change"/></Link>
+							<button onClick={(event) => onHandleSignOut(event)} className="login-signup__signup login-signup__common">SignOut</button>
+						</div>
+	}
+	else{
+		displayButton = <div className="login-signup">
+							<div className="login-signup__container">
+								<Link to="/login">
+									<button className="login-signup__login login-signup__common">Login</button>
+								</Link>	
+								<Link to="/signup">
+									<button className="login-signup__signup login-signup__common">Sign up</button>
+								</Link>
+							</div>
+						</div>
+	}
 	return(
 		<div className="navigation">
 			<Link to="/" className="logo-container">
@@ -17,16 +48,7 @@ const Navigation = () =>{
 					<li className="navigation-list__item">Contact</li>
 				</ul>
 			</div>
-			<div className="login-signup">
-				<div className="login-signup__container">
-					<Link to="/login">
-						<button className="login-signup__login login-signup__common">Login</button>
-					</Link>	
-					<Link to="/signup">
-						<button className="login-signup__signup login-signup__common">Sign up</button>
-					</Link>
-				</div>
-			</div>
+			{displayButton}
 		</div>
 	)
 }

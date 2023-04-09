@@ -4,7 +4,7 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const TokenPage = ({email, setLoader, showNotificationError, showNotificationSuccess}) => {
+const TokenPage = ({setLoader, showNotificationError, showNotificationSuccess}) => {
 
 	const [otp1, setOtp1] = useState("");
 	const [otp2, setOtp2] = useState("");
@@ -13,12 +13,12 @@ const TokenPage = ({email, setLoader, showNotificationError, showNotificationSuc
 	const [otp5, setOtp5] = useState("");
 	const [otp6, setOtp6] = useState("");
 
-	const [receiveOtpTimer, setReceiveOtpTimer] = useState(15)
-
-	
+	const [receiveOtpTimer, setReceiveOtpTimer] = useState(15);
 	const otp = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
 
 	const navigate = useNavigate();
+
+	const storedEmail = JSON.parse(localStorage.getItem("email"));
 
 	const focusNextInput = (event) =>{
 		if(event.key === "Delete" || event.key==="Backspace"){
@@ -61,9 +61,9 @@ const TokenPage = ({email, setLoader, showNotificationError, showNotificationSuc
 
     	setLoader(true);
 
-    	axios.get(`https://unisach-dev.onrender.com/api/users/auth/resendotp/${email}`)
+    	axios.get(`https://unisach-dev.onrender.com/api/users/auth/resendotp/${storedEmail}`)
     	.then(res => {
-    		showNotificationSuccess(res.data);
+    		showNotificationSuccess(res.data.data);
     		setLoader(false);
     	})
     	.catch(err => {
@@ -79,12 +79,13 @@ const TokenPage = ({email, setLoader, showNotificationError, showNotificationSuc
 		setLoader(true);
 
 		axios.post("https://unisach-dev.onrender.com/api/users/auth/verifyotp",{
-			email: email,
+			email: storedEmail,
 			otp: otp
 		})
 		.then(response => {
 			if(response.data.data){
 				showNotificationSuccess("otp successful");
+				localStorage.setItem("user", JSON.stringify(response.data.data));
 				navigate("/pharmacy-registration");
 				setLoader(false)
 			}

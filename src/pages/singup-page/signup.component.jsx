@@ -4,10 +4,11 @@ import UnisachLogo from "../../components/unisachlogo/unisachlogo.component.jsx"
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
-const SignUpPage = ({email, setEmail, setLoader, showNotificationError, showNotificationSuccess}) =>{	
+const SignUpPage = ({setLoader, showNotificationError, showNotificationSuccess}) =>{	
 	const navigate = useNavigate();
 
 	const [firstName, setFirstName] = useState("");
+	const [email, setEmail] =useState("");
 	const [lastName, setLastName] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -90,6 +91,7 @@ const SignUpPage = ({email, setEmail, setLoader, showNotificationError, showNoti
 				if(response.data.data){
 					navigate("/signup/token");
 					showNotificationSuccess("check your email for otp");
+					localStorage.setItem("email", JSON.stringify(email));
 					setLoader(false);
 				}
 			})

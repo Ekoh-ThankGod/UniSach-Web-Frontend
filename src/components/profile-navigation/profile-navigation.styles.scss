@@ -1,0 +1,143 @@
+.profile-navigation{
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	background: linear-gradient(262.77deg, #120303 41.94%, #379386 134.54%);
+	box-shadow: 0px 4px 4px #087B83;
+	padding-left: 10px;
+	padding-right: 10px;
+
+	&__img-span{
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+	}
+
+	&__img{
+		margin-right: 10px;
+	}
+
+	&__ul{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 32px;
+	}
+
+	&__li{
+		color: #ffffff;
+		list-style: none;
+		cursor: pointer;
+	}
+
+	&__li:not(:last-child){
+		margin-right: 50px;
+	}
+
+	&__span{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 30px;
+		line-height: 32px;
+		color: #FFFFFF;
+	}
+
+	&__phc{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__profile{
+		cursor: pointer;
+		
+		margin-right: 20px;
+		display: flex;
+		align-items: center;
+		justify-content:center;
+		margin-right: 20px;
+		border: none;
+	}
+
+	&__dropdown{
+		display: none;
+	}
+
+	&__dropdown-btn{
+		position: absolute;
+		top: 72px;
+		right: 133px;
+		background-color: #C86810;
+		padding: 10px;
+		color: #ffffff;
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 32px;
+		border: none;
+		cursor: pointer;
+	}
+
+	&__dropdown-display{
+		display: block;
+	}
+
+	&__btn-icon{
+		background: transparent;
+		outline: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	&__icon{
+		width: 25px;
+	}
+
+	&__icon-home{
+		margin-right: 20px;
+	}
+
+	&__btn{
+		width: 121px;
+		height: 40px;
+		background: #C86810;
+		box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.86);
+		border-radius: 80px; 
+		color: #ffffff;
+
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 32px;
+		cursor: pointer;
+	}
+
+	&__contact{
+		width: 109px;
+		height: 40px;
+		left: 1353px;
+		top: 40px;
+
+		background: #379386;
+		border-radius: 5px;
+		border: none;
+
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 24px;
+
+		color: #ffffff;
+		cursor: pointer;
+	}
+}

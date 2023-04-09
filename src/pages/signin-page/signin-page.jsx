@@ -46,9 +46,8 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 						showNotificationSuccess(response.data.data.message);
 					}
 					else{
-						console.log(response.data.data.user);
 						showNotificationSuccess("login successful");
-						setUserData(response.data.data);
+						localStorage.setItem("user", JSON.stringify(response.data.data));
 						navigate("/");
 					};
 					setLoader(false);
@@ -74,7 +73,8 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 	      if(response.data.data){
 	      	navigate("/")
 	      	setLoader(false);
-	      	showNotificationSuccess("signin successful")
+	      	showNotificationSuccess("signin successful");
+	      	localStorage.setItem("user", JSON.stringify(response.data.data));
 	      }
 	    })
 	    .catch(err => {
