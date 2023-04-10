@@ -13,6 +13,7 @@ import ForgotPasswordCode from "./pages/forgot-password-confirm-code/forgot-pass
 import RegisterPharmacyUpload from "./pages/signup-pharmacy-upload/signup-pharmacy-upload.component.jsx";
 import ProfilePage from "./pages/profile/profile.component.jsx";
 import Protected from "./components/protected/protected.component.jsx";
+import Inventory from "./pages/inventory/inventory.component.jsx";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -64,6 +65,8 @@ function App() {
          setLoader={setLoader} email={email} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess}/>}/>
 
          <Route path="/dashboard" element={<Protected><ProfilePage/></Protected>}/>
+
+         <Route path="/inventory" element={<Protected><Inventory/></Protected>}/>
       </Routes>
       <Footer/>
     </div>

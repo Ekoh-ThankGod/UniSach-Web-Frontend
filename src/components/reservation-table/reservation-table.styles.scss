@@ -1,0 +1,35 @@
+.reservation-table{
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	overflow: scroll;
+	border-spacing: 0;
+	border-collapse: collapse;
+
+	&__header{
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 32px;
+	}
+
+
+	&__column{
+		border: 2px solid rgba(0, 0, 0, 0.5);
+	}
+
+	&__body{
+
+	}
+
+	&__row{
+		width: 130px;
+		text-align: center;
+
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 15px;
+		line-height: 32px;
+		border: 2px solid rgba(0, 0, 0, 0.5);
+	}
+}

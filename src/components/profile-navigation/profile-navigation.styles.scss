@@ -49,6 +49,13 @@
 		color: #FFFFFF;
 	}
 
+	&__inventory{
+		color: #ffffff;
+		list-style: none;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
 	&__phc{
 		display: flex;
 		justify-content: space-between;

@@ -31,8 +31,8 @@ const ProfileNavigation = () => {
 				<span className="profile-navigation__span">Unisach</span>
 			</Link>
 			<ul className="profile-navigation__ul">
-				<li className="profile-navigation__li">Home</li>
-				<li className="profile-navigation__li">Inventory</li>
+				<li className="profile-navigation__li"><Link to="/dashboard" className="profile-navigation__inventory">Home</Link></li>
+				<li className="profile-navigation__li"><Link to="/inventory" className="profile-navigation__inventory">Inventory</Link></li>
 				<li className="profile-navigation__li">Plan</li>
 			</ul>
 			<button className="profile-navigation__btn">Place ADS</button>

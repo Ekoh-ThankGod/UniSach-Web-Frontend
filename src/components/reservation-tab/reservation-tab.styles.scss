@@ -1,0 +1,90 @@
+.reservation-select__container{
+	margin-bottom: 15px;
+}
+
+.reservation-select{
+	&__search-bar{
+		display: flex;
+		justify-content: space-between;
+		max-width: 1039px;
+		align-items: center;
+
+		background: linear-gradient(90.02deg, #379386 13.02%, rgba(0, 0, 0, 0.93) 148.27%);
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+
+	&__text{
+		color: #FFFFFF;
+		text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 30px;
+		line-height: 32px;
+	}
+
+	&__text-cont{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		max-width: 1036px;
+
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		border-radius: 2px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	&__active{
+		color: #C86810;
+		text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 25px;
+		line-height: 32px;
+	}
+
+	&__inactive{
+		color: rgba(0, 0, 0, 0.7);
+		text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 25px;
+		line-height: 32px;
+	}
+
+	&__cart{
+		width: 50px;
+	}
+
+	&__input{
+		width: 300px;
+		height: 30px;
+		border: 1px solid #FFFFFF;
+		border-radius: 8px;
+		background: linear-gradient(90.02deg, #379386 13.02%, rgba(0, 0, 0, 0.93) 148.27%);
+
+		color: rgba(255, 255, 255, 0.5);
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 32px;
+		text-align: center;
+		margin-right: 10px;
+	}
+
+	&__relative{
+		position: relative;
+	}
+
+	&__button{
+		background: transparent;
+		border: none;
+		position: absolute;
+		top: 13%;
+		right: 3%;
+	}
+}

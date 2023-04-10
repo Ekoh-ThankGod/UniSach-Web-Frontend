@@ -1,3 +1,11 @@
 .profile-container{
 	position: relative;
+	background: #F3F9F8;
+
+	&__body{
+		margin-top: 10px;
+		display: flex;
+		justify-content: space-around;
+		padding: 10px;
+	}
 }
