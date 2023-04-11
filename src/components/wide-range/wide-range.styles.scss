@@ -1,13 +1,10 @@
 .wide-range{
 	margin-top: 50px;
-	position: relative;
-
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	&__boundary{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform:translateX(-50%);
 		width: 837px;
 		height: 353px;
 		border: 6px solid #C86810;

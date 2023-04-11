@@ -12,7 +12,53 @@
 .inventory-categories{
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	max-width: 1000px;
+
+	&__wrapper{
+		display: flex;
+		margin: 0 auto;
+		align-items: center;
+		justify-content: space-between;
+		width: 820px;
+		margin-bottom: -35px;
+	}
+
+	&__lastadded{
+		color: rgba(0, 0, 0, 0.9);
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 25px;
+		line-height: 32px;
+		text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+		margin-bottom: -0px;
+	}
+
+	&__input-img{
+		position: relative;
+	}
+
+	&__input{
+		border: 1px solid rgba(0, 0, 0, 0.7);
+		border-radius: 8px;
+		width: 288px;
+		height: 35px;
+		text-align: center;
+
+		color: rgba(0, 0, 0, 0.5);
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 32px;
+	}
+
+	&__img{
+		position: absolute;
+		top: 25%;
+		right: 5%;
+	}
 }
 
 .inventory-categories__h2{
@@ -22,20 +68,20 @@
 	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 600;
-	font-size: 40px;
+	font-size: 35px;
 	line-height: 32px;
 
 }
 
 .inventory-category{
 
-	width: 300px;
-	height: 260px;
+	width: 260px;
+	height: 220px;
 	background: rgba(55, 147, 134, 0.51);
 	box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
 	cursor: pointer;
-	margin-right: 30px;
+	margin-right: 40px;
 
 	&__background1{
 		background: rgba(55, 147, 134, 0.51);
@@ -63,7 +109,7 @@
 		font-family: 'Roboto';
 		font-style: normal;
 		font-weight: 500;
-		font-size: 25px;
+		font-size: 22px;
 		line-height: 32px;
 		background: #EAEAEA;
 		text-align: center;
@@ -89,5 +135,6 @@
 
 	&__img{
 		margin-bottom: 20px;
+		width: 70px;
 	}
 }

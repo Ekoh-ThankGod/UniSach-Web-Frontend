@@ -1,0 +1,31 @@
+.why-us{
+	text-align: center;
+	background: linear-gradient(270deg, rgba(9, 121, 129, 0.63) 52.31%, #FFFFFF 99.48%);
+	padding: 10px 10px;
+	margin-top: 20px;
+
+	&__h2{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 60px;
+		line-height: 24px;
+	}
+
+	&__p{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 60px;
+	}
+
+	&__span{
+		color: #C86810;
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 60px;
+		line-height: 24px;
+	}
+}

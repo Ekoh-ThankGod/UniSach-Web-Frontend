@@ -4,7 +4,6 @@ import home from "../../assets/logo/home.png";
 import profile from "../../assets/logo/profile.png";
 import {Link} from "react-router-dom";
 import {useState} from "react";
-// import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
 

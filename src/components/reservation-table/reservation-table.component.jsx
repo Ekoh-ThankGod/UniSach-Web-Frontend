@@ -1,124 +1,13 @@
 import "./reservation-table.styles.scss";
 import {useTable} from "react-table";
 import {useMemo} from "react";
+import changeReservationTableData from "../data/reservation-table-data.js";
 
 const ReservationTable = () => {
 
-	const rawData = [
-		{
-			id: "wqke",
-			date: "11-01-2023",
-			code: "USPG287GB",
-			item: "Paracetamol",
-			amount: "4 packs",
-			customer: "John Doe",
-			phone: "0703473734",
-			price: "₦2500"
-		},
-		{
-			id: "wqsf",
-			date: "11-01-2023",
-			code: "USPG287GB",
-			item: "Paracetamol",
-			amount: "4 packs",
-			customer: "John Doe",
-			phone: "0703473734",
-			price: "₦2500"
-		},
-		{
-			id: "dfdgg",
-			date: "11-01-2023",
-			code: "USPG287GB",
-			item: "Paracetamol",
-			amount: "4 packs",
-			customer: "John Doe",
-			phone: "0703473734",
-			price: "₦2500"
-		},
-		{
-			id: "fdfdg",
-			date: "11-01-2023",
-			code: "USPG287GB",
-			item: "Paracetamol",
-			amount: "4 packs",
-			customer: "John Doe",
-			phone: "0703473734",
-			price: "₦2500"
-		},
-		{
-			id: "wfdrg",
-			date: "11-01-2023",
-			code: "USPG287GB",
-			item: "Paracetamol",
-			amount: "4 packs",
-			customer: "John Doe",
-			phone: "0703473734",
-			price: "₦2500"
-		},
-		{
-			id: "lkhf",
-			date: "11-01-2023",
-			code: "USPG287GB",
-			item: "Paracetamol",
-			amount: "4 packs",
-			customer: "John Doe",
-			phone: "0703473734",
-			price: "₦2500"
-		},
-		{
-			id: "wdfgl",
-			date: "11-01-2023",
-			code: "USPG287GB",
-			item: "Paracetamol",
-			amount: "4 packs",
-			customer: "John Doe",
-			phone: "0703473734",
-			price: "₦2500"
-		},
-		{
-			id: "wdfgl",
-			date: "11-01-2023",
-			code: "USPG287GB",
-			item: "Paracetamol",
-			amount: "4 packs",
-			customer: "James Doe",
-			phone: "0703473734",
-			price: "₦2500"
-		}
-	]
+	const columns = useMemo(() => changeReservationTableData().columnsObj, []);
 
-	const columns = useMemo(() => [
-		{
-			Header: "DATE",
-			accessor: "date"
-		},
-		{
-			Header: "CODE",
-			accessor: "code"
-		},
-		{
-			Header: "ITEM",
-			accessor: "item"
-		},
-		{
-			Header: "AMOUNT",
-			accessor: "amount"
-		},
-		{
-			Header: "CUSTOMER",
-			accessor: "customer"
-		},
-		{
-			Header: "PHONE",
-			accessor: "phone"
-		},
-		{
-			Header: "PRICE",
-			accessor: "price"
-		},
-	], []);
-
-	const data = useMemo(() => rawData, []);
+	const data = useMemo(() => changeReservationTableData().rawData, []);
 
 	const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = useTable({columns, data});
 

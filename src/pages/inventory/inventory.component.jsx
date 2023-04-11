@@ -8,6 +8,8 @@ import chemical from "../../assets/logo/chemical.png";
 import other from "../../assets/logo/other.png";
 import {Link} from "react-router-dom";
 import SideBar from "../../components/side-bar/side-bar.component.jsx";
+import glass from "../../assets/logo/glass-black.png";
+import ReservationTable from "../../components/reservation-table/reservation-table.component.jsx";
 
 const categories = [
 	{
@@ -68,7 +70,15 @@ const Inventory = () => {
 			<ProfileNavigation/>
 			<div className="inventory-container__flex">
 				<div className="inventory-categories__separate">
-					<h2 className="inventory-categories__h2">Categories</h2>
+					<h2 className="inventory-categories__lastadded">Last Added Item</h2>
+					<ReservationTable/>
+					<div className="inventory-categories__wrapper">
+						<h2 className="inventory-categories__h2">Categories</h2>
+						<div className="inventory-categories__input-img">
+							<input placeholder="Search" className="inventory-categories__input"/>
+							<img src={glass} alt="search glass" className="inventory-categories__img"/>
+						</div>
+					</div>
 					<div className="inventory-categories">
 						{
 							categories.map(category =>{
