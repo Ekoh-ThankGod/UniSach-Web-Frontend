@@ -1,0 +1,78 @@
+.inventory-oral-drugs{
+
+	background: #F3F9F8;
+
+	&__container{
+		width: 100%;
+	}
+
+	&__text-container{
+		display: flex;
+		justify-content: space-between;
+		width: 70%;
+		margin: 0 auto;
+		width: 90%;
+	}
+
+	&__wrapper{
+		display: flex;
+		justify-content: space-between;
+		padding: 20px;
+	}
+
+	&__texts{
+
+	}
+
+	&__h1{
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 32px;
+		color: rgba(200, 104, 16, 0.9);
+	}
+
+	&__span{
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 32px;
+	}
+
+	&__input-wrapper{
+		display: flex;
+		justify-content: flex-end;
+		width: 95%;
+
+		position: relative;
+	}
+
+	&__input{
+		border: 1px solid rgba(0, 0, 0, 0.7);
+		border-radius: 8px;
+		width: 288px;
+		height: 35px;
+		text-align: center;
+
+		color: rgba(0, 0, 0, 0.5);
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 32px;
+	}
+
+	&__img{
+		position: absolute;
+		top: 25%;
+		right: 1%;
+	}
+
+	&__table{
+		display: flex;
+		justify-content: center;
+		margin-top: 30px;
+	}
+}

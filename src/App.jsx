@@ -14,6 +14,8 @@ import RegisterPharmacyUpload from "./pages/signup-pharmacy-upload/signup-pharma
 import ProfilePage from "./pages/profile/profile.component.jsx";
 import Protected from "./components/protected/protected.component.jsx";
 import Inventory from "./pages/inventory/inventory.component.jsx";
+import PlanPage from "./pages/plan/plan-page.component.jsx";
+import InventoryOralDrugs from "./pages/inventory-oral-drugs/inventory-oral-drugs.component.jsx";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,7 +43,7 @@ function App() {
     <div className="App">
       <ToastContainer />
       <Routes>
-         <Route path="/" element={<HomePage/>}/>
+         <Route path="/" element={loader ? <Loader show={loader} type = "box"/> :<HomePage setLoader={setLoader} />}/>
 
          <Route path="/login" element={loader ? <Loader show={loader} type = "box"/> : <SignInPage 
          setLoader={setLoader} setUserData={setUserData} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess}/>}/>
@@ -64,9 +66,11 @@ function App() {
          <Route path="/forgot-password/password-reset/:token" element={loader ? <Loader show={loader} type = "box"/> : <ForgotPasswordCode 
          setLoader={setLoader} email={email} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess}/>}/>
 
-         <Route path="/dashboard" element={<Protected><ProfilePage/></Protected>}/>
+         <Route path="/dashboard" element={loader ? <Loader show={loader} type = "box"/> :<Protected><ProfilePage setLoader={setLoader}/></Protected>}/>
 
-         <Route path="/inventory" element={<Protected><Inventory/></Protected>}/>
+         <Route path="/inventory" element={loader ? <Loader show={loader} type = "box"/> :<Protected><Inventory setLoader={setLoader}/></Protected>}/>
+          <Route path="/plan" element={loader ? <Loader show={loader} type = "box"/> :<Protected><PlanPage setLoader={setLoader}/></Protected>}/>
+          <Route path="/inventory/oral-drugs" element={loader ? <Loader show={loader} type = "box"/> :<Protected><InventoryOralDrugs setLoader={setLoader}/></Protected>}/>
       </Routes>
       <Footer/>
     </div>

@@ -63,11 +63,11 @@ const categories = [
 
 ]
 
-const Inventory = () => {
+const Inventory = ({setLoader}) => {
 
 	return(
 		<div className="inventory-container">
-			<ProfileNavigation/>
+			<ProfileNavigation setLoader={setLoader}/>
 			<div className="inventory-container__flex">
 				<div className="inventory-categories__separate">
 					<h2 className="inventory-categories__lastadded">Last Added Item</h2>
@@ -84,7 +84,7 @@ const Inventory = () => {
 							categories.map(category =>{
 								const {name, representation, id, number, background,link} = category;
 								return(
-									<Link to={`/inventory/${link}`} key={id} className="inventory-category__link">
+									<Link to={`${link}`} key={id} className="inventory-category__link">
 										<div className={`inventory-category ${background}`}>
 											<h3 className="inventory-category__h3">{name}</h3>
 											<div  className="inventory-category__flex">

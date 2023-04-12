@@ -2,17 +2,26 @@ import "./navigation.styles.scss";
 import logo from "../../assets/logo/unisachlogo.png";
 import {Link, useNavigate} from "react-router-dom";
 import profile from "../../assets/logo/profile.png";
+import axios from "axios";
 
 
-const Navigation = () =>{
+const Navigation = ({setLoader}) =>{
 	const user = JSON.parse(localStorage.getItem("user"));
 	const navigate = useNavigate();
 	let displayButton;
 
 	const onHandleSignOut = (event) =>{
-		localStorage.removeItem("user");
-		localStorage.removeItem("email");
-		navigate("/");
+		setLoader(true);
+		axios.get("https://unisach-dev.onrender.com/api/users/auth/logout")
+		.then(res => {
+			if(res){
+				setLoader(false);
+				localStorage.removeItem("user");
+				localStorage.removeItem("email");
+				navigate("/");
+			}
+		})
+
 	}
 
 	if(user || user?.accessToken){

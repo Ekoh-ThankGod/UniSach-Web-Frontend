@@ -123,6 +123,18 @@ const changeReservationTableData = () =>{
 
 		return {rawData, columnsObj};
 	}
+	else if(window.location.pathname === "/inventory/oral-drugs"){
+		rawData = [{date : "11-01-2023",name: "Paracetamol",category: "Oral Drug",price: "₦350"},
+					{date : "11-01-2023",name: "Paracetamol",category: "Oral Drug",price: "₦350"},
+					{date : "11-01-2023",name: "Paracetamol",category: "Oral Drug",price: "₦350"},
+					{date : "11-01-2023",name: "Paracetamol",category: "Oral Drug",price: "₦350"},
+					{date : "11-01-2023",name: "Paracetamol",category: "Oral Drug",price: "₦350"},
+					{date : "11-01-2023",name: "Paracetamol",category: "Oral Drug",price: "₦350"},
+					{date : "11-01-2023",name: "Paracetamol",category: "Oral Drug",price: "₦350"},
+					{date : "11-01-2023",name: "Paracetamol",category: "Oral Drug",price: "₦350"}]
+		columnsObj = [{Header: "DATE ADDED",accessor: "date"},{Header: "NAME",accessor: "name"},{Header: "CATEGORY",accessor: "category"},{Header: "PRICE",accessor: "price"}]
+		return {rawData, columnsObj};
+	}
 }
 
 export default changeReservationTableData;

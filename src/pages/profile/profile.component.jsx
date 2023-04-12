@@ -4,10 +4,10 @@ import ReservationTable from "../../components/reservation-table/reservation-tab
 import ReservationSelect from "../../components/reservation-tab/reservation-tab.component.jsx";
 import SideBar from "../../components/side-bar/side-bar.component.jsx";
 
-const ProfilePage = () => {
+const ProfilePage = ({setLoader}) => {
 	return(
 		<div className="profile-container">
-			<ProfileNavigation/>
+			<ProfileNavigation setLoader={setLoader}/>
 			<div className="profile-container__body">
 				<div className="">
 					<ReservationSelect/>
