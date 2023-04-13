@@ -4,13 +4,14 @@ import ProfileNavigation from "../../components/profile-navigation/profile-navig
 
 const PlanPage =({setLoader}) => {
 
-	// useEffect(() => {
-	// 	axios.get("https://unisach-dev.onrender.com/api/users/auth/refreshtoken",{
-	// 		withCredentials: true,
-	// 		credentials: true
-	// 	})
-	// 	.then(res => console.log(res));
-	// }, [])
+	useEffect(() => {
+		axios.get("https://unisach-dev.onrender.com/api/users/auth/refreshtoken",{
+			withCredentials: true,
+			credentials: true
+		})
+		.then(res => console.log(res))
+		.catch(err => console.log(err));
+	}, []);
 
 	return(
 		<div>
