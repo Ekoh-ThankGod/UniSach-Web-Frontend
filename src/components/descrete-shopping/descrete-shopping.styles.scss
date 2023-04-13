@@ -1,0 +1,28 @@
+.descrete-shopping{
+	text-align: center;
+	margin: 0 auto;
+	background: #DEDFDF;
+	margin-top: 30px;
+	padding-bottom: 20px;
+
+	&__img{
+		max-width: 300px;
+	}
+
+	&__h2{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 43px;
+		color: #C86810;
+	}
+
+	&__p{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 23px;
+		line-height: 43px;
+	}
+}

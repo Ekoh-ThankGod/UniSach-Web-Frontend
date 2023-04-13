@@ -1,0 +1,27 @@
+.med-search{
+
+	text-align: center;
+	background: #DEDFDF; 
+	padding-bottom: 10px;
+
+	&__h2{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 40px;
+		color: #C86810;
+	}
+
+	&__p{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 23px;
+		line-height: 52px;
+	}
+
+	&__img{
+		width: 100%;
+	}
+}

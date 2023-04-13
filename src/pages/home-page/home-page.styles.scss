@@ -1,3 +1,47 @@
 .home-page{
+	text-align: center;
 	
+	&__customers{
+		&__h2{
+			font-family: 'Poppins';
+			font-style: normal;
+			font-weight: 600;
+			font-size: 60px;
+			line-height: 56px;
+		}
+
+		&__span{
+			color: #C86810;
+		}
+
+		&__p{
+			font-family: 'Poppins';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 56px;
+		}
+
+	}
+}
+
+.reliable-faster{
+	margin: 0 auto;
+	background: #C86810;
+	border-radius: 9px;
+	max-width: 1000px;
+	color: #ffffff;
+	padding: 20px;
+
+	&__h2{
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 50px;
+		line-height: 90px;
+	}
+
+	&__span{
+		color: #087B83;
+	}
 }
