@@ -4,18 +4,23 @@ import ProfileNavigation from "../../components/profile-navigation/profile-navig
 
 const PlanPage =({setLoader}) => {
 
-	useEffect(() => {
-		axios.get("https://unisach-dev.onrender.com/api/users/auth/refreshtoken",{
-			withCredentials: true,
-			credentials: true
-		})
-		.then(res => console.log(res))
-		.catch(err => console.log(err));
-	}, []);
+	const getRefreshToken = async (e) => {
+    e.preventDefault()
+    try {
+      console.log('clicked')
+      const result = await axios.get(`https://unisach-dev.onrender.com/api/users/auth/refreshtoken`,  {withCredentials: true, credentials: true})
+	  console.log(result.data)
+    } 
+    catch (error) {
+      console.log(error)
+    }
+  }
+
 
 	return(
 		<div>
 			<ProfileNavigation setLoader={setLoader}/>
+			<button onClick={getRefreshToken}>refresh Token</button>
 		</div>
 	)
 }

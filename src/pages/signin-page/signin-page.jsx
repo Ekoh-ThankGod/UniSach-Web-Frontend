@@ -26,38 +26,37 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 		console.log(event.target.checked);
 	}
 
+	const onSignInButton = async (e) => {
+	    e.preventDefault()
 
-	const onSignInButton = (event) =>{
-
-		if(userName==="" || password===""){
+	    if(userName==="" || password===""){
 			showNotificationError("please fill in your credentials");
 			return;
 		}
 
-		setLoader(true);
+			setLoader(true);
 
-		axios.post("https://unisach-dev.onrender.com/api/users/auth/login",{
-				email: userName,
-			 	password: password
-				})
-			.then(response => {
-				if(response.data.data){
-					if(response.data.data.message === "Please verify your email to continue your Registration process"){
-						showNotificationSuccess(response.data.data.message);
-					}
-					else{
-						showNotificationSuccess("login successful");
-						localStorage.setItem("user", JSON.stringify(response.data.data));
-						navigate("/");
-					};
-					setLoader(false);
+	    try {
+	      const response = await axios.post("https://unisach-dev.onrender.com/api/users/auth/login", {email: userName, password}, {withCredentials: true, credentials: true})
+		  console.log(response.data.data);
+
+		  if(response.data.data){
+				if(response.data.data.message === "Please verify your email to continue your Registration process"){
+					showNotificationSuccess(response.data.data.message);
 				}
-			})
-			.catch(err => {
-				showNotificationError(err.response.data.message);
-				setLoader(false)
-			});	
-	}
+				else{
+					showNotificationSuccess("login successful");
+					localStorage.setItem("user", JSON.stringify(response.data.data));
+					navigate("/");
+				};
+				setLoader(false);
+		}
+
+    } catch (err) {
+      showNotificationError(err.response.data.message);
+      setLoader(false)
+    }
+  }
 
 	// signin with google
 
@@ -68,7 +67,7 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 		axios.post("https://unisach-dev.onrender.com/api/users/auth/signin/google",{
 	      token: response.credential,
 	      role: "Pharmacist"
-	      })
+	      }, {withCredentials: true, credentials: true})
 	    .then(response =>{
 	      if(response.data.data){
 	      	navigate("/")
