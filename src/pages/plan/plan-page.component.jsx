@@ -1,26 +1,45 @@
-import {useEffect} from "react";
-import axios from "axios";
+import {useState, useEffect} from "react";
 import ProfileNavigation from "../../components/profile-navigation/profile-navigation.component.jsx";
+import useRefreshToken from "../../hooks/useRefreshToken.js";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate.js";
+import axios from "axios";
 
 const PlanPage =({setLoader}) => {
 
-	const getRefreshToken = async (e) => {
-    e.preventDefault()
-    try {
-      console.log('clicked')
-      const result = await axios.get(`https://unisach-dev.onrender.com/api/users/auth/refreshtoken`,  {withCredentials: true, credentials: true})
-	  console.log(result.data)
-    } 
-    catch (error) {
-      console.log(error)
-    }
-  }
+    const [user, setUser] =useState();
 
+    const axiosPrivate = useAxiosPrivate();
+    const refresh = useRefreshToken();
+
+  useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+
+    const getUsers = async () => {
+      try{
+        const response = await axiosPrivate.get("https://unisach-dev.onrender.com/api/users/me",{
+          signal: controller.signal
+        });
+          setUser(response.data.data);
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+    getUsers();
+
+    return ()=> {
+      isMounted = false;
+      controller.abort();
+    }
+  }, [])
+
+  console.log(user);
 
 	return(
 		<div>
 			<ProfileNavigation setLoader={setLoader}/>
-			<button onClick={getRefreshToken}>refresh Token</button>
+      <div>{user?.first_name}</div>
 		</div>
 	)
 }

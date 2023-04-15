@@ -48,15 +48,6 @@ const Navigation = ({setLoader}) =>{
 				<img src={logo} className="logo-container__logo" alt="pharmacy-logo"/>
 				<span className="logo-container__text">Unisac</span>
 			</Link>
-			<div className="navigation-list">
-				<ul className="navigation-list__container">
-					<li className="navigation-list__item">Platform</li>
-					<li className="navigation-list__item">Service</li>
-					<li className="navigation-list__item">Work</li>
-					<li className="navigation-list__item">About us</li>
-					<li className="navigation-list__item">Contact</li>
-				</ul>
-			</div>
 			{displayButton}
 		</div>
 	)

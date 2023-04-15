@@ -1,12 +1,23 @@
 .descrete-shopping{
+	background-image: url("../../assets/logo/descrete-shopping.png");
+	background-size: cover;
 	text-align: center;
 	margin: 0 auto;
-	background: #DEDFDF;
-	margin-top: 30px;
-	padding-bottom: 20px;
+	margin-top: 15px;
+	width: 1004px;
+	height: 500px;
+	padding-bottom: 15px;
+	display: flex;
+	align-items: flex-end;
+	margin-right: -1px;
+	margin-right: 72px;
 
-	&__img{
-		max-width: 300px;
+	&__wrapper{
+		width: 100%;
+		padding-top: 2px;
+		background: #DEDFDF;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		margin-bottom: -15px;
 	}
 
 	&__h2{
@@ -14,7 +25,7 @@
 		font-style: normal;
 		font-weight: 600;
 		font-size: 40px;
-		line-height: 43px;
+		line-height: 35px;
 		color: #C86810;
 	}
 
@@ -23,6 +34,11 @@
 		font-style: normal;
 		font-weight: 400;
 		font-size: 23px;
-		line-height: 43px;
+		line-height: 33px;
+	}
+
+	&__img{
+		width: 100%;
+		margin-right: -50px;
 	}
 }
