@@ -3,6 +3,7 @@
 	overflow: scroll;
 	border-spacing: 0;
 	border-collapse: collapse;
+	margin-right: 10px;
 
 	&__header{
 		font-family: 'Roboto';
@@ -22,7 +23,7 @@
 	}
 
 	&__row{
-		width: 130px;
+		width: 200px;
 		text-align: center;
 
 		font-family: 'Roboto';

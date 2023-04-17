@@ -4,19 +4,23 @@ import ProfileNavigation from "../../components/profile-navigation/profile-navig
 import AddItemButton from "../../components/add-item-button/add-item-button.component.jsx";
 import glass from "../../assets/logo/glass-black.png";
 import ReservationTable from "../../components/reservation-table/reservation-table.component.jsx";
+import PopUp from "../../components/pop-up/pop-up.component.jsx";
+import {useState} from "react";
 
-const InventoryOralDrugs = ({setLoader}) => {
+const InventoryOralDrugs = ({setLoader, displayPopUp, setDisplayPopUp, filter, setFilter}) => {
+	
 	return(
 		<div className="inventory-oral-drugs">
+			<PopUp displayPopUp={displayPopUp}/>
 			<ProfileNavigation setLoader={setLoader}/>
-			<div className="inventory-oral-drugs__wrapper">
+			<div className={`inventory-oral-drugs__wrapper ${filter}`}>
 				<div className="inventory-oral-drugs__container">
 					<div className="inventory-oral-drugs__text-container">
 						<div className="inventory-oral-drugs__texts">
 							<h1 className="inventory-oral-drugs__h1">Oral Drugs</h1>
 							<span className="inventory-oral-drugs__span">10 items</span>
 						</div>
-						<AddItemButton/>
+						<AddItemButton setDisplayPopUp={setDisplayPopUp} setFilter={setFilter}/>
 					</div>
 					<div className="inventory-oral-drugs__input-wrapper">
 						<input className="inventory-oral-drugs__input" placeholder="Search" alt=""/>

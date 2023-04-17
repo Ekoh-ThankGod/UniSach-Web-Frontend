@@ -26,6 +26,8 @@ function App() {
   const [userData, setUserData] = useState({});
   const [email, setEmail] = useState("");
   const [loader, setLoader] = useState(false);
+  const [displayPopUp, setDisplayPopUp] = useState("");
+  const [filter, setFilter] =useState("");
 //  Using the loader library to display success or failure during api calls
   const showNotificationError = (notification) => {
         toast.error(notification, {
@@ -68,9 +70,11 @@ function App() {
 
          <Route path="/dashboard" element={loader ? <Loader show={loader} type = "box"/> :<Protected><ProfilePage setLoader={setLoader}/></Protected>}/>
 
-         <Route path="/inventory" element={loader ? <Loader show={loader} type = "box"/> :<Protected><Inventory setLoader={setLoader}/></Protected>}/>
+         <Route path="/inventory" element={loader ? <Loader show={loader} type = "box"/> :<Protected><Inventory displayPopUp={displayPopUp} setDisplayPopUp={setDisplayPopUp} setLoader={setLoader}/></Protected>}/>
+
           <Route path="/plan" element={loader ? <Loader show={loader} type = "box"/> :<Protected><PlanPage setLoader={setLoader}/></Protected>}/>
-          <Route path="/inventory/oral-drugs" element={loader ? <Loader show={loader} type = "box"/> :<Protected><InventoryOralDrugs setLoader={setLoader}/></Protected>}/>
+
+          <Route path="/inventory/oral-drugs" element={loader ? <Loader show={loader} type = "box"/> :<Protected><InventoryOralDrugs filter={filter} setFilter={setFilter} displayPopUp={displayPopUp} setDisplayPopUp={setDisplayPopUp} setLoader={setLoader}/></Protected>}/>
       </Routes>
       <Footer/>
     </div>
