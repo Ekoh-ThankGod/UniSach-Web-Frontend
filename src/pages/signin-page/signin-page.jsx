@@ -77,7 +77,8 @@ const SignInPage = ({setUserData, setLoader, showNotificationError,showNotificat
 	      }
 	    })
 	    .catch(err => {
-	      showNotificationError("Unable to signin with google")
+	      showNotificationError("Unable to signin with google");
+	      setLoader(false);
 	    })
 	}
 	

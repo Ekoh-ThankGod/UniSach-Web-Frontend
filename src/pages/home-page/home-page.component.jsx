@@ -7,6 +7,7 @@ import DescreteShopping from "../../components/descrete-shopping/descrete-shoppi
 import Product from "../../components/product/product-component.jsx";
 import MobileApp from "../../components/mobile-app/mobile-app.component.jsx";
 import SideBar from "../../components/side-bar/side-bar.component.jsx";
+import Slider from "../../components/slider/slider.component.jsx";
 
 const HomePage = ({setLoader}) => {
 	return(
@@ -26,6 +27,7 @@ const HomePage = ({setLoader}) => {
 							have noticed. Here”s what they<br/> have to say
 						</p>
 					</div>
+					<Slider/>
 					<div className="reliable-faster">
 						<h2 className="reliable-faster__h2">Simpler, <span className="reliable-faster__span">reliable</span>, faster and better <br/> pharmacy</h2>
 						<p className="home-page__customers__p">
