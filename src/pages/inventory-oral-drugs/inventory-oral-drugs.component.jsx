@@ -11,7 +11,7 @@ const InventoryOralDrugs = ({setLoader, displayPopUp, setDisplayPopUp, filter, s
 	
 	return(
 		<div className="inventory-oral-drugs">
-			<PopUp displayPopUp={displayPopUp}/>
+			<PopUp displayPopUp={displayPopUp} setDisplayPopUp={setDisplayPopUp} setFilter={setFilter}/>
 			<ProfileNavigation setLoader={setLoader}/>
 			<div className={`inventory-oral-drugs__wrapper ${filter}`}>
 				<div className="inventory-oral-drugs__container">

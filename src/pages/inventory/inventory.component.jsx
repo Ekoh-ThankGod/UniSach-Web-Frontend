@@ -10,6 +10,8 @@ import {Link} from "react-router-dom";
 import SideBar from "../../components/side-bar/side-bar.component.jsx";
 import glass from "../../assets/logo/glass-black.png";
 import ReservationTable from "../../components/reservation-table/reservation-table.component.jsx";
+import AddItemButton from "../../components/add-item-button/add-item-button.component.jsx";
+import PopUp from "../../components/pop-up/pop-up.component.jsx";
 
 const categories = [
 	{
@@ -63,13 +65,18 @@ const categories = [
 
 ]
 
-const Inventory = ({setLoader}) => {
+const Inventory = ({setLoader, displayPopUp, setDisplayPopUp, filter, setFilter}) => {
 
 	return(
 		<div className="inventory-container">
+			<PopUp displayPopUp={displayPopUp} setDisplayPopUp={setDisplayPopUp} setFilter={setFilter}/>
 			<ProfileNavigation setLoader={setLoader}/>
-			<div className="inventory-container__flex">
+			<div className={`inventory-container__flex ${filter}`}>
 				<div className="inventory-categories__separate">
+					<div className="inventory-categories__text-button">
+						<span className="inventory-categories__inventory-text">Inventory</span>
+						<AddItemButton setDisplayPopUp={setDisplayPopUp} setFilter={setFilter}/>
+					</div>
 					<h2 className="inventory-categories__lastadded">Last Added Item</h2>
 					<ReservationTable/>
 					<div className="inventory-categories__wrapper">

@@ -1,5 +1,6 @@
 .inventory-container{
 	background: #F3F9F8;
+	padding-bottom: 60px;
 
 	&__flex{
 		display: flex;
@@ -22,6 +23,20 @@
 		justify-content: space-between;
 		width: 820px;
 		margin-bottom: -35px;
+	}
+
+	&__text-button{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__inventory-text{
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 32px;
 	}
 
 	&__lastadded{

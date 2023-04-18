@@ -1,11 +1,71 @@
 .profile-container{
 	position: relative;
 	background: #F3F9F8;
+	padding-bottom: 50px;
 
 	&__body{
 		margin-top: 10px;
 		display: flex;
 		justify-content: space-around;
 		padding: 10px;
+	}
+
+	&__wrapper{
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		width: 1000px;
+		margin-top: 20px;
+	}
+
+	&__separate{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: radial-gradient(50% 50% at 50% 50%, rgba(241, 140, 46, 0.2) 0%, rgba(250, 214, 181, 0.07075) 48.96%, rgba(251, 219, 190, 0.0625) 52.08%, rgba(253, 235, 219, 0.0349576) 82.81%, rgba(255, 255, 255, 0) 100%), radial-gradient(120.02% 120.02% at 0% 12.41%, #000000 40.12%, #3C9386 100%);
+		border: 1px solid rgba(0, 0, 0, 0.5);
+		border-radius: 7px;
+		width: 250px;
+	}
+
+	&__h2{
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 30px;
+		line-height: 32px;
+		letter-spacing: -2.5px;
+		color: rgba(255, 255, 255, 0.96);
+		text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+	}
+
+	&__level{
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 30px;
+		line-height: 32px;
+		letter-spacing: -3px;
+		background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(61.3% 1875.44% at 50% 50%, #FFFFFF 35.42%, rgba(217, 217, 217, 0) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+		text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+	}
+
+	&__left{
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 32px;
+		color: rgba(255, 255, 255, 0.96);
+		text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+	}
+
+	&__img{
+		width: 100px;
+		margin-bottom: 10px;
 	}
 }

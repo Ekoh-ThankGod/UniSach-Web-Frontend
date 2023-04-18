@@ -70,7 +70,7 @@ function App() {
 
          <Route path="/dashboard" element={loader ? <Loader show={loader} type = "box"/> :<Protected><ProfilePage setLoader={setLoader}/></Protected>}/>
 
-         <Route path="/inventory" element={loader ? <Loader show={loader} type = "box"/> :<Protected><Inventory displayPopUp={displayPopUp} setDisplayPopUp={setDisplayPopUp} setLoader={setLoader}/></Protected>}/>
+         <Route path="/inventory" element={loader ? <Loader show={loader} type = "box"/> :<Protected><Inventory filter={filter} setFilter={setFilter} displayPopUp={displayPopUp} setDisplayPopUp={setDisplayPopUp} setLoader={setLoader}/></Protected>}/>
 
           <Route path="/plan" element={loader ? <Loader show={loader} type = "box"/> :<Protected><PlanPage setLoader={setLoader}/></Protected>}/>
 
