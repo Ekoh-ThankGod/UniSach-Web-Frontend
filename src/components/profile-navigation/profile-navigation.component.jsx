@@ -12,7 +12,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 
-const ProfileNavigation = ({setLoader}) => {
+const ProfileNavigation = ({setLoader, setFilter, setDisplayPopUp}) => {
 
 	const [displayDropDown, setDislayDropDown] =useState("");
 	const [changeHomeTextColor, setChangeHomeTextColor] = useState("");
@@ -52,6 +52,11 @@ const ProfileNavigation = ({setLoader}) => {
 		}
 	},[]);
 
+	const handlePopUpAds = () => {
+		setDisplayPopUp("pop-up__display");
+		setFilter("inventory-oral-drugs__filter");
+	}
+
 
 	return(
 		<div className="profile-navigation">
@@ -64,7 +69,7 @@ const ProfileNavigation = ({setLoader}) => {
 				<li className="profile-navigation__li"><Link to="/inventory" className={`profile-navigation__inventory ${changeInventoryTextColor}`}>Inventory</Link></li>
 				<li className="profile-navigation__li"><Link to="/plan" className={`profile-navigation__inventory ${changePlanTextColor}`}>Plan</Link></li>
 			</ul>
-			<button className="profile-navigation__btn">Place ADS</button>
+			<button onClick={handlePopUpAds} className="profile-navigation__btn">Place ADS</button>
 			<div className="profile-navigation__phc">
 				<div className="profile-navigation__profile">
 					<button onClick={(event)=> onIconClick(event)} className="profile-navigation__btn-icon"><img src={profile} alt="" className="profile-navigation__icon"/></button>
@@ -77,7 +82,7 @@ const ProfileNavigation = ({setLoader}) => {
 						</div>
 					</div>
 				</div>
-				<Link to="/dashboard" className="profile-navigation__icon-home"><img src={home} alt="" className="profile-navigation__icon"/></Link>
+				<Link to="/store-profile" className="profile-navigation__icon-home"><img src={home} alt="" className="profile-navigation__icon"/></Link>
 				<button className="profile-navigation__contact">contact us</button>
 			</div>
 		</div>

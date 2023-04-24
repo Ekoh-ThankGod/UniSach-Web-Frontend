@@ -16,6 +16,7 @@ import Protected from "./components/protected/protected.component.jsx";
 import Inventory from "./pages/inventory/inventory.component.jsx";
 import PlanPage from "./pages/plan/plan-page.component.jsx";
 import InventoryOralDrugs from "./pages/inventory-oral-drugs/inventory-oral-drugs.component.jsx";
+import StorePage from "./pages/store-page/store-page.component.jsx";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -56,7 +57,7 @@ function App() {
          <Route path="/signup/token" element={loader ? <Loader show={loader} type = "box"/> : <TokenPage 
          setLoader={setLoader} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess} />}/>
 
-         <Route path="/pharmacy-registration" element={<PharmacyRegistration/>}/>
+         <Route path="/pharmacy-registration" element={loader ? <Loader show={loader} type = "box"/> :<PharmacyRegistration setLoader={setLoader} showNotificationError={showNotificationError} showNotificationSuccess={showNotificationSuccess}/>}/>
 
          <Route path="/pharmacy-registration/upload" element={<RegisterPharmacyUpload/>} />
 
@@ -75,6 +76,8 @@ function App() {
           <Route path="/plan" element={loader ? <Loader show={loader} type = "box"/> :<Protected><PlanPage setLoader={setLoader}/></Protected>}/>
 
           <Route path="/inventory/oral-drugs" element={loader ? <Loader show={loader} type = "box"/> :<Protected><InventoryOralDrugs filter={filter} setFilter={setFilter} displayPopUp={displayPopUp} setDisplayPopUp={setDisplayPopUp} setLoader={setLoader}/></Protected>}/>
+
+          <Route path="/store-profile" element={<Protected><StorePage displayPopUp={displayPopUp} filter={filter} setDisplayPopUp={setDisplayPopUp} setFilter={setFilter} /></Protected>} />
       </Routes>
       <Footer/>
     </div>
